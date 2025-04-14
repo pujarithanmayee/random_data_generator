@@ -1,0 +1,5785 @@
+[
+{
+  "instruction": "Explain the purpose of the CUSTOMER_CONTACT table.",
+  "input": {
+    "table_name": "CUSTOMER_CONTACT",
+    "columns": [
+
+      { "name": "contact_id", "type": "VARCHAR(20)" },
+      { "name": "customer_id", "type": "VARCHAR(20)" },
+      { "name": "contact_type", "type": "ENUM" },
+      { "name": "contact_value", "type": "VARCHAR(255)" },
+      { "name": "is_primary", "type": "BOOLEAN" }
+    ],
+
+    "sample_data": [
+      ["CONT-0562c85b3d954765","1bc4b962-f897-467b-8081-c4eb86676c6e", "Mobile",  "+1 102-750-6964", "TRUE"],
+      ["CONT-1ea1e09753f34209","CUST-22369762",  "Mobile", "+1 877-753-9900", "TRUE"],
+	["CONT-4ceccd2edebd4617","CUST-HA6SLE4K",  "Mobile", "+91 48927-24528", "TRUE"]
+	["CONT-9e07d3732ddf4d6c","DAL-2025-987654",   "Home Phone", "+91 68-87410492-4", "FALSE"]
+	["CONT-150bed7f6b7240cd","20230907-25273",   "Email", "ryanpatrick954@protonmail.com", "FALSE"]
+	["CONT-d2c187ad5f63447b","CUST-223697",  "Work Phone", "+1 427-060-4628", "FALSE"]
+	["CONT-09f5e1a5ac3140a9","JP-12345678",  "Email", "info@andersonlopezan.com", "FALSE"]
+	["CONT-0562c85b3d954765","1bc4b962-f897-467b-8081-c4eb86676c6e",  "Mobile", "+1 102-750-6964", "TRUE"]
+	["CONT-1ea1e09753f34209","AF-198300",  "Mobile", "+1 877-753-9900", "TRUE"]
+	["CONT-75107dcbbe1c4255","QR-4240626c-0940-44ce-a2b7-336f6f0bc7c2",  "Email", "william.howard@protonmail.com", "TRUE"]
+	["CONT-629511d00c1642df","CUST-02624480",  "Mobile", "+1 894-843-8776", "TRUE"]
+	["CONT-f2959122af554667","727310cd-b576-4a16-be23-2b8398837e50",  "Mobile", "+61 4410 753 646", "TRUE"]
+	["CONT-82f3040647ca4552","CUST-P2PGU87O",  "Work Phone", "+1 778-183-8736", "TRUE"]
+	["CONT-4b2fa3715d58424f","QR-f8c61501-2c0e-4a29-a7a9-54dba329bba2",  "Mobile", "+1 546-864-6408", "TRUE"]
+	["CONT-cc6031017ea241c2","CUST-563169",  "Mobile", "+91 45535-63169", "TRUE"]
+    ]
+  },
+  "answer": "The CUSTOMER_CONTACT table stores various contact methods for customers, such as mobile numbers, home phones, or emails. It includes an identifier for each contact, associates it with a customer, specifies the type of contact, and indicates whether it is the customer's primary contact method."
+},
+{
+  "instruction": "Explain the purpose of the CUSTOMER_ADDRESS table.",
+  "input": {
+    "table_name": "CUSTOMER_ADDRESS",
+    "columns": [
+      { "name": "address_id", "type": "VARCHAR(30)" },
+      { "name": "customer_id", "type": "VARCHAR(36)" },
+      { "name": "address_type", "type": "ENUM" },
+      { "name": "street", "type": "VARCHAR(255)" },
+      { "name": "city", "type": "VARCHAR(100)" },
+      { "name": "state", "type": "VARCHAR(100)" },
+      { "name": "postal_code", "type": "VARCHAR(20)" },
+      { "name": "country", "type": "VARCHAR(100)" },
+      { "name": "is_primary", "type": "BOOLEAN" }
+    ],
+    "sample_data": [
+      ["ADDR-fc44e24cb8e84131", "1bc4b962-f897-467b-8081-c4eb86676c6e", "Home", "5526 Must Dr", "Houston", "Washington", "4623", "United States", "TRUE"],
+      ["ADDR-634dca2cf3994bd2", "NYC-2025-000123", "Billing", "2515 Film Rd, # 232", "Dallas", "Rhode Island", "80289", "United States", "FALSE"],
+      ["ADDR-29fe3523500442af", "CUST-HA6SLE4K", "Home", "1452 Face Ct", "Ahmedabad", "Arunachal Pradesh", "842864", "India", "TRUE"],
+      ["ADDR-8e072fb1a2f242d2", "20250210-12345", "Billing", "2294 Bed Ct, # 97", "Delhi", "Bihar", "817338", "India", "FALSE"],
+      ["ADDR-64b2e32eae5b47ce", "CUST-987654", "Work", "59 Second Blvd", "Austin", "Idaho", "56235", "United States", "TRUE"],
+      ["ADDR-61f3728d2dad4f23", "CUST-22369762", "Mailing", "6082 Must Ct", "Phoenix", "Utah", "8240", "United States", "FALSE"],
+      ["ADDR-551e03e59cab4236", "US-00001234", "Billing", "7080 Democrat Ln, Suite 212", "Charlotte", "Maine", "25273", "United States", "FALSE"],
+      ["ADDR-42dce23a6de343de", "AM92-67890", "Home", "7644 It Rd", "Indore", "Assam", "648176", "India", "TRUE"],
+      ["ADDR-6a8db99372014685", "5d41402abc4b2a76b9719d911017c592", "Home", "7128 Piece Blvd, Unit 35", "Sydney", "South Australia", "6323", "Australia", "TRUE"],
+      ["ADDR-b1e49fca7f694cd8", "dGhpcyBpcyBhIHRlc3QgY3VzdG9tZXI=", "Home", "2253 Also Pl", "Ahmedabad", "Manipur", "264338", "India", "TRUE"],
+      ["ADDR-bd7e856caf504237", "RFID-1A2B3C4D5E6F7G8H", "Home", "2238 Hear Way", "Vancouver", "New Brunswick", "Y4A 2Y0", "Canada", "TRUE"],
+      ["ADDR-88d9445776a74fa0", "QR-CUST1234567890", "Mailing", "8075 Sense Rd", "Oshawa", "Newfoundland and Labrador", "X8P 4K7", "Canada", "FALSE"],
+      ["ADDR-32d3ad3ba1154877", "0d2699f5-3196-42c6-874f-9a7454e3ea62", "Home", "1216 Radio Way, Apt 374", "Charlotte", "Iowa", "11903", "United States", "TRUE"],
+      ["ADDR-041d249303914322", "CUST-43993365", "Home", "5654 Work St", "Los Angeles", "Oklahoma", "81849", "United States", "TRUE"],
+      ["ADDR-082bc346098943f7", "QR-550e8400e29b41d4a716446655440000", "Home", "3922 Guy Pl", "Seattle", "Alabama", "26769", "United States", "TRUE"]
+    ]
+  },
+  "answer": "The CUSTOMER_ADDRESS table stores address details associated with each customer, such as home, billing, mailing, or work addresses. It includes a unique address ID, links the address to a specific customer, and stores complete location information. Additionally, it flags whether the address is marked as the primary contact location for the customer."
+},
+{
+  "instruction": "Explain the purpose of the CUSTOMER_LIFESTYLE table.",
+  "input": {
+    "table_name": "CUSTOMER_LIFESTYLE",
+    "columns": [
+      {"name": "lifestyle_id", "type": "VARCHAR(20)"},
+      {"name": "customer_id", "type": "VARCHAR(20)"},
+      {"name": "smoker", "type": "BOOLEAN"},
+      {"name": "alcohol_consumption", "type": "ENUM"},
+      {"name": "exercise_frequency", "type": "ENUM"},
+      {"name": "dietary_preference", "type": "VARCHAR(255)"},
+      {"name": "travel_frequency", "type": "ENUM"},
+      {"name": "luxury_spending", "type": "BOOLEAN"},
+      {"name": "subscription_services", "type": "JSON"}
+    ],
+    "sample_data": [
+	      ["LIFE-461b06c2732a4a65", "24676170-1902-4163-967f-64f7f74e52f1", "FALSE", "Occasionally", "3-5 times/week", "Halal", "Occasionally", "FALSE", "{"Netflix": 17.4, "YouTube Premium": 48.84, "News subscription": 19.36, "Streaming fitness": 18.84, "Dating app premium": 24.74}"],
+	["LIFE-e8d0800a804e4840", "CUST-22369762", "TRUE", "Never", "1-2 times/week", "Organic", "Occasionally", "FALSE", "{"Corporate subscriptions": "Varies"}"],
+	["LIFE-87003f883b8646f8", "CUST-505454", "FALSE", "Regularly", "Daily", "Mediterranean", "Frequently", "TRUE", "{"Disney+": 9.11, "Wine club": 32.08, "Dating app premium": 23.9}"],
+	["LIFE-903cedeb42c54355", "CUST-X9Y8Z7", "FALSE", "Regularly", "None", "Pescatarian", "Frequently", "FALSE", "{"Hulu": 34.88, "Book club": 41.72, "HBO Max": 12.23, "Disney+": 10.41, "Gym membership": 100.75, "Apple Music": 15.93, "Dating app premium": 25.39, "Streaming fitness": 16.59}"],
+	["LIFE-ec7c2f52f1f74d06", "DEL-2023-001234", "FALSE", "Regularly", "3-5 times/week", "No restrictions", "Rarely", "FALSE", "{"Dating app premium": 26.34, "HBO Max": 11.42, "Meal kit delivery": 9.23, "Apple Music": 42.11, "Disney+": 17.42, "Gym membership": 83.13}"],
+	["LIFE-96e6a2ea57f4452b", "20231231-54321", "TRUE", "Regularly", "Daily", "Gluten-free", "Rarely", "FALSE", "{"Magazine subscription": 11.57}"],
+	["LIFE-3092d8da0b84430d", "UK-67852431", "FALSE", "Never", "Daily", "Vegan", "Occasionally", "FALSE", "{"YouTube Premium": 46.41, "Magazine subscription": 14.57, "Meal kit delivery": 48.96, "Cloud storage": 44.0, "Gaming service": 31.25, "Hulu": 13.18, "Gym membership": 97.31, "Disney+": 14.16}"],
+	["LIFE-c5a30742a0054ece", "AK98-98675", "FALSE", "Occasionally", "3-5 times/week", "No restrictions", "Occasionally", "TRUE", "{"HBO Max": 9.98, "Gym membership": 59.5, "Book club": 35.55, "Hulu": 22.62, "Netflix": 12.62}"],
+	["LIFE-d158b8106e464863", "RFID-1A2B3C4D5E6F7G8H", "FALSE", "Never", "None", "No restrictions", "Frequently", "FALSE", "{"Wine club": 19.33, "Gaming service": 47.2, "Spotify": 17.35, "Apple Music": 43.6, "Amazon Prime": 10.96, "Cloud storage": 41.33, "Netflix": 17.02}"],
+	["LIFE-45fbaf38c4304fd2", "QR-CUST8957vs", "FALSE", "Regularly", "Daily", "Keto", "Occasionally", "FALSE", "{"HBO Max": 9.98, "Gym membership": 59.5, "Book club": 35.55, "Hulu": 22.62, "Netflix": 12.62}"],
+	["LIFE-843f4b51782c453b","CUST-28001521","FALSE","Never","1-2 times/week","Paleo","Rarely","FALSE","{"Amazon Prime": 8.62}"]      
+    ]
+  },
+  "answer": "The CUSTOMER_LIFESTYLE table stores lifestyle of the customer which gives us a gist about daily routines wheather the person is a alcoholic what are his dietary prferences and does h/she do luxury spending and many more ."
+},
+{
+  "instruction": "Explain the purpose of the CUSTOMER_FINANCIAL_BEHAVIOUR table.",
+  "input": {
+    "table_name": "CUSTOMER_FINANCIAL_BEHAVIOUR",
+    "columns": [
+
+      { "name": "behaviour_id", "type": "VARCHAR(20)" },
+      { "name": "customer_id", "type": "VARCHAR(20)" },
+      { "name": "savings_habit", "type": "ENUM" },
+      { "name": "investment_type", "type": "ENUM" },
+      { "name": "loan_repayment_behaviour", "type": "ENUM" },
+      { "name": "spending_category", "type": "JSON" },
+      { "name": "preferred_payment_method", "type": "ENUM" },
+      { "name": "financial_goal", "type": "ENUM" }
+    ],
+
+    "sample_data": [
+      ["FIN-f29cfa4878fe4e7e", "1bc4b962-f897-467b-8081-c4eb86676c6e", "Moderate", "Bonds", "Excellent", "{\"Gifts/Donations\": 47, \"Utilities\": 11, \"Savings\": 36, \"Housing\": 6}", "Credit Card", "Home Purchase"],
+["FIN-4b8ef0a300484342", "CUST-HA6SLE4K", "Low", "None", "Good", "{\"Shopping\": 23, \"Entertainment\": 14, \"Investments\": 18, \"Gifts/Donations\": 20, \"Utilities\": 12, \"Food\": 13}", "Debit Card", "Home Purchase"],
+["FIN-6e0afb72bc9341a1", "CUST-22369762", "High", "Stocks", "Good", "{\"Operations\": 40, \"Marketing\": 19, \"Payroll\": 36, \"Equipment\": 14, \"Miscellaneous\": 3}", "Credit Card", "Starting Business"],
+["FIN-f20f01fcd2b74bc3", "CUST-02624480", "Low", "Stocks", "Poor", "{\"Utilities\": 48, \"Gifts/Donations\": 24, \"Personal Care\": 21, \"Food\": 2, \"Miscellaneous\": 2, \"Housing\": 1, \"Savings\": 1, \"Travel\": 1}", "UPI", "Emergency Fund"],
+["FIN-9f2660bf77864f9b", "727310cd-b576-4a16-be23-2b8398837e50", "Low", "Crypto", "Fair", "{\"Personal Care\": 36, \"Travel\": 4, \"Entertainment\": 25, \"Healthcare\": 35}", "Credit Card", "Home Purchase"],
+["FIN-1f2bdd0409ab4281", "QR-d4a716446655440000", "Low", "None", "Poor", "{\"Taxes\": 20, \"Food\": 44, \"Miscellaneous\": 23, \"Personal Care\": 8, \"Transportation\": 3, \"Insurance\": 2}", "Debit Card", "Emergency Fund"],
+["FIN-8d627846d89e48c6", "CUST-FUVWL8PS", "Moderate", "Stocks", "Poor", "{\"Investments\": 50, \"Taxes\": 45, \"Shopping\": 1, \"Transportation\": 1, \"Miscellaneous\": 1, \"Insurance\": 1, \"Personal Care\": 1}", "Cash", "Retirement"],
+["FIN-13339dff83a44054", "0d2699f5-3196-42c6-874f-9a7454e3ea62", "Low", "Mutual Funds", "Poor", "{\"Travel\": 43, \"Food\": 38, \"Gifts/Donations\": 15, \"Healthcare\": 4}", "Crypto", "Retirement"],
+["FIN-290a4f7cb75d4de3", "CUST-43993365", "Low", "Crypto", "Good", "{\"Travel\": 49, \"Utilities\": 44, \"Debt Repayment\": 5, \"Savings\": 1, \"Transportation\": 1}", "UPI", "Emergency Fund"],
+["FIN-967b6daf20d74bc8", "RFID-5d41402abc4b2a76", "Moderate", "Stocks", "Good", "{\"Education\": 27, \"Healthcare\": 43, \"Housing\": 15, \"Travel\": 8, \"Insurance\": 4, \"Savings\": 2, \"Gifts/Donations\": 1}", "Credit Card", "Home Purchase"],
+["FIN-625f3fbb92b44eac", "249c370f-ca7d-45e2-bbd7-2fb2817d5f98", "High", "Bonds", "Excellent", "{\"Healthcare\": 14, \"Savings\": 18, \"Transportation\": 36, \"Education\": 26, \"Travel\": 6}", "Cash", "Vehicle Purchase"]
+    ]
+  },
+  "answer": "The CUSTOMER_FINANCIAL_BEHAVIOUR table stores mainly behaviour of the customer which tells us about their investments their financial goals, spending, prferred payment methods they use and how good they payback their loans etc.."
+},
+{
+  "instruction": "Explain the purpose of the CUSTOMER_DIGITAL_ENGAGEMENT table.",
+  "input": {
+    "table_name": "CUSTOMER_DIGITAL_ENGAGEMENT",
+    "columns": [
+
+      { "name": "digital_id", "type": "VARCHAR(20)" },
+      { "name": "customer_id", "type": "VARCHAR(20)" },
+      { "name": "mobile_banking_usage", "type": "BOOLEAN" },
+      { "name": "internet_banking_usage", "type": "BOOLEAN" },
+      { "name": "preferred_digital_channel", "type": "ENUM" },
+      { "name": "fraud_detection_enabled", "type": "BOOLEAN" },
+      { "name": "biometric_authentication", "type": "BOOLEAN" },
+      { "name": "recent_login", "type": "TIMESTAMP" }
+    ],
+
+    "sample_data": [
+      ["DIG-be58b161b2464800", "20231231-54321", "TRUE", "TRUE", "Mobile App", "TRUE", "TRUE", "6/3/2025 9:40"],
+["DIG-b0cedb81bbe74541", "CUST-52011773", "TRUE", "TRUE", "Web Portal", "TRUE", "TRUE", "7/3/2025 17:29"],
+["DIG-55d96b37985548ea", "LDN-2024-987654", "FALSE", "TRUE", "Web Portal", "TRUE", "FALSE", "10/3/2025 4:34"],
+["DIG-39cfd1a6fa1844aa", "06ae994c-fbe0-4204-9061-242945f5bcb1", "TRUE", "TRUE", "Branch", "FALSE", "TRUE", "7/3/2025 0:06"],
+["DIG-1b78955d6b564d81", "CUST-456789", "FALSE", "FALSE", "ATM", "TRUE", "TRUE", "14-02-2025 10:54"],
+["DIG-5fa45e1416744d53", "IN-98765432", "TRUE", "TRUE", "ATM", "TRUE", "TRUE", "11/3/2025 12:18"],
+["DIG-b2ca5d3b76e54f6e", "KC94-75475", "FALSE", "TRUE", "Web Portal", "TRUE", "FALSE", "4/3/2025 22:28"],
+["DIG-aee7799118584853", "4b2a76b9719d911017c5925d41402abc", "TRUE", "TRUE", "Branch", "TRUE", "TRUE", "10/3/2025 11:23"],
+["DIG-f24761fcbeb54223", "RFID-b9719d911017c592", "TRUE", "TRUE", "Mobile App", "FALSE", "TRUE", "9/3/2025 6:18"],
+["DIG-b78e7d04387e444b", "CUST-XZPG03TB", "TRUE", "FALSE", "Mobile App", "TRUE", "TRUE", "5/3/2025 22:50"],
+["DIG-b5d3eb9405144349", "QR-659f876gb09sd86g987dfsgg", "TRUE", "TRUE", "Web Portal", "TRUE", "FALSE", "8/3/2025 8:06"]
+    ]
+  },
+  "answer": "The CUSTOMER_DIGITAL_ENGAGEMENT table tells about the user engagement with bank's digital services and tell us wheather the person is using internet banking, mobile banking and their recent login."
+},
+{
+  "instruction": "Explain the purpose of the CUSTOMER table.",
+  "input": {
+    "table_name": "CUSTOMER",
+    "columns": [
+
+      { "name": "customer_id", "type": "VARCHAR(20)" },
+      { "name": "entity_individual", "type": "VARCHAR(20)" },
+      { "name": "legal_company_name", "type": "VARCHAR(100)" },
+      { "name": "company_trade_name", "type": "VARCHAR(100)" },
+      { "name": "preferred_currency", "type": "VARCHAR(10)" },
+      { "name": "preferred_branch", "type": "VARCHAR(100)" },
+      { "name": "preferred_contact_method", "type": "ENUM" },
+      { "name": "social_media_presence", "type": "JSON" },
+      { "name": "risk_score", "type": "DECIMAL" },
+      { "name": "created_at", "type": "TIMESTAMP" },
+      { "name": "updated_at", "type": "TIMESTAMP" },
+      { "name": "full_legal_name", "type": "VARCHAR(100)" },
+      { "name": "name_prefix", "type": "VARCHAR(10)" },
+      { "name": "first_name", "type": "VARCHAR(100)" },
+      { "name": "middle_name", "type": "VARCHAR(100)" },
+      { "name": "last_name", "type": "VARCHAR(100)" },
+      { "name": "alias", "type": "VARCHAR(100)" },
+      { "name": "date_of_birth", "type": "DATE" },
+      { "name": "date_of_incorporation", "type": "DATE" },
+      { "name": "national_id", "type": "VARCHAR(50)" },
+      { "name": "country_of_legal_formation", "type": "VARCHAR(100)" },
+      { "name": "country_of_birth", "type": "VARCHAR(100)" },
+      { "name": "country_of_principle_business", "type": "VARCHAR(100)" },
+      { "name": "country_of_primary_residence", "type": "VARCHAR(100)" },
+      { "name": "tax_id", "type": "VARCHAR(50)" },
+      { "name": "age", "type": "INT" },
+      { "name": "gender", "type": "ENUM" },
+      { "name": "ethnicity", "type": "VARCHAR(100)" },
+      { "name": "nationality", "type": "VARCHAR(100)" },
+      { "name": "citizenship1", "type": "VARCHAR(100)" },
+      { "name": "citizenship2", "type": "VARCHAR(100)" },
+      { "name": "native_language", "type": "VARCHAR(50)" },
+      { "name": "religion", "type": "VARCHAR(100)" },
+      { "name": "marital_status", "type": "ENUM" },
+      { "name": "dependents_count", "type": "INT" },
+      { "name": "household_income", "type": "DECIMAL(15,2)" },
+      { "name": "education_level", "type": "ENUM" },
+      { "name": "employment_status", "type": "ENUM" },
+      { "name": "occupation", "type": "VARCHAR(100)" },
+      { "name": "industry", "type": "VARCHAR(100)" },
+      { "name": "company_name", "type": "VARCHAR(255)" },
+      { "name": "years_with_employer", "type": "INT" },
+      { "name": "job_role", "type": "VARCHAR(100)" },
+      { "name": "annual_income", "type": "DECIMAL(15,2)" },
+      { "name": "primary_bank_relation", "type": "ENUM" },
+      { "name": "credit_score", "type": "DECIMAL(15,2)" },
+      { "name": "home_ownership", "type": "ENUM" },
+      { "name": "residence_duration", "type": "INT" },
+      { "name": "vehicle_ownership", "type": "BOOLEAN" },
+      { "name": "financial_dependents", "type": "INT" }
+    ],
+
+    "sample_data": [
+      ["6fbfe3b3-7930-42b4-b8d7-32116adbf0fd", "INDIVIDUAL", "Rodriguez-Patterson", "Greer Group", "JPY", "Barrettton Branch", "Phone", "{\"facebook\": null, \"twitter\": \"meganlin\", \"linkedin\": \"randymoore\", \"instagram\": \"glevy\"}", "779.04", "15-08-2023 12:38", "12/3/2025 12:38", "Karen Bennett", "Ms", "Kendra", "Kathryn", "Williams", "christopherharding", "6/12/1971", "24-08-2021 00:00", "NIR-276104131625", "Australia", "Japan", "India", "India", "NIR-125124815115", "48", "Prefer Not to Say", "Middle Eastern", "Australia", "United States", "China", "Chinese", "None/Atheist", "Divorced", "4", "65102.83", "Associate Degree", "Student", "Microbiologist", "Healthcare", "Harris-Donovan", "3", "Barrister's clerk", "25713.45", "Primary", "533.96", "Owned", "12", "FALSE", "1"],
+["800a5d46-76dc-47ea-8f9a-620a33515e5a", "COMPANY", "Marshall-Williams", "Arnold, Stevenson and Tate", "EUR", "New Hannahview Branch", "SMS", "{\"facebook\": null, \"twitter\": null, \"linkedin\": \"ztanner\", \"instagram\": \"xclements\"}", "408.46", "17-08-2023 12:38", "12/3/2025 12:38", "Matthew Allen", "", "Ronald", "Jacob", "Reese", "tpoole", "750527T35Y", "5/20/2022", "CORP-HRB-93039", "China", "Japan", "United States", "Australia", "STEUER-71347025726", "2", "Male", "Middle Eastern", "India", "United Kingdom", "India", "Hindi", "Prefer not to say", "Married", "1", "21899.95", "No Formal Education", "Employed", "Personal assistant", "Finance", "Marshall-Williams", "5", "Loss adjuster, chartered", "6330744.22", "Primary", "492.81", "Rented", "22", "TRUE", "2"],
+["CUST-KSGHDO8L", "COMPANY", "Mejia LLC", "Rogers PLC", "GBP", "Port Andrew Branch", "In-Person", "{\"facebook\": \"halljoshua\", \"twitter\": null, \"linkedin\": \"stephen84\", \"instagram\": \"uhill\"}", "702.47", "6/3/2023 12:38", "12/3/2025 12:38", "Earl Munoz", "", "Justin", "Devon", "Ware", "kathryn83", "6/8/1935", "9504170EAV", "CNPJ-25.778.468/4939-10", "France", "India", "Germany", "China", "CTAX-CPF-723.278.947-45", "29", "Female", "Caucasian", "France", "Canada", "Canada", "Japanese", "Buddhism", "Widowed", "1", "197808.1", "Associate Degree", "Self-employed", "Building surveyor", "Entertainment", "Mejia LLC", "6", "Biomedical scientist", "7180477.96", "Primary", "435.18", "Owned", "17", "FALSE", "5"],
+["3c0d4342-1d4e-4ea8-a8af-5753e4a3caf3", "INDIVIDUAL", "Hoffman-Young", "Williams Inc", "INR", "East Judith Branch", "Email", "{\"facebook\": null, \"twitter\": null, \"linkedin\": \"jasonwalton\", \"instagram\": null}", "468.85", "9/7/2024 12:38", "12/3/2025 12:38", "Christine Woods", "Ms", "Adam", "Scott", "Choi", "dthomas", "5/13/1945", "26-12-2012", "AADHAAR-5386-5315-7924", "France", "Canada", "United Kingdom", "Germany", "PAN-DXADL9324P", "70", "Prefer Not to Say", "Indigenous", "United Kingdom", "Brazil", "Japan", "Hindi", "Buddhism", "Married", "0", "166566.99", "High School", "Retired", "Research officer, political party", "Manufacturing", "Hoffman-Young", "9", "Patent attorney", "33968.63", "Secondary", "725.75", "Mortgaged", "24", "TRUE", "0"],
+["CUST-78486174", "INDIVIDUAL", "Noble, Wallace and Lane", "Bennett-Brown", "GBP", "Donovanmouth Branch", "Chatbot", "{\"facebook\": \"archerbreanna\", \"twitter\": \"angela16\", \"linkedin\": null, \"instagram\": \"grant60\"}", "384.63", "16-01-2023 12:38", "12/3/2025 12:38", "Cassandra Taylor", "Smt", "Debra", "Sheryl", "Knox", "amy41", "1973-10", "25-11-2023", "NINO-LN-770579-O", "China", "France", "United Kingdom", "Canada", "UTR-5832060533", "38", "Prefer Not to Say", "Mixed", "China", "Singapore", "France", "Arabic", "Hinduism", "Married", "1", "25848.52", "No Formal Education", "Retired", "Insurance claims handler", "Healthcare", "Noble, Wallace and Lane", "12", "Quality manager", "28630.01", "Primary", "489.36", "Living with Family", "5", "FALSE", "0"],
+["CUST-03142561", "COMPANY", "Hoover PLC", "Schwartz, Morris and Collins", "USD", "Lake Kimberly Branch", "Email", "{\"facebook\": \"shelleygray\", \"twitter\": \"bmiller\", \"linkedin\": \"tammymorgan\", \"instagram\": \"john73\"}", "773.23", "24-02-2024 12:38", "12/3/2025 12:38", "Ronald Steele", "Junior", "Julie", "Breanna", "Walters", "stephencollins", "25-09-1981", "8/5/1997 0:00", "CNPJ-39.617.783/5730-10", "India", "China", "Singapore", "Canada", "CTAX-CPF-284.583.822-83", "27", "Male", "Indigenous", "United States", "Singapore", "United Kingdom", "German", "Prefer not to say", "Single", "2", "195966.29", "No Formal Education", "Unemployed", "Bonds trader", "Education", "Hoover PLC", "14", "Systems developer", "8696241.64", "Primary", "688.81", "Living with Family", "15", "TRUE", "4"],
+["CUST-QW6EMXS7", "INDIVIDUAL", "Wolfe Ltd", "Rodriguez, Smith and Watson", "INR", "Michaelshire Branch", "In-Person", "{\"facebook\": \"manningallison\", \"twitter\": \"lewisbrian\", \"linkedin\": null, \"instagram\": \"johnsontristan\"}", "769.87", "21-10-2024 12:38", "12/3/2025 12:38", "Justin Smith", "Prof", "Rhonda", "Hannah", "Wilson", "laurenreese", "1969", "10/2/1998", "STEUER-35 500 899 829", "Singapore", "United Kingdom", "United Kingdom", "China", "STEUER-49950878412", "26", "Male", "Hispanic/Latino", "China", "United States", "Canada", "Spanish", "Buddhism", "Single", "1", "108704.79", "Doctorate", "Retired", "Systems analyst", "Retail", "Davis-Trevino", "8", "Clinical biochemist", "9850468.7", "Secondary", "593.43", "Owned", "29", "FALSE", "4"],
+["c22d265c-4121-48f7-b146-51b90517d8fe", "COMPANY", "Riley-Bartlett", "Brewer, Phillips and Morales", "GBP", "South Davidland Branch", "SMS", "{\"facebook\": \"marywalker\", \"twitter\": \"jamesrodriguez\", \"linkedin\": null, \"instagram\": \"carlosnelson\"}", "824.7", "1/10/2022 12:38", "12/3/2025 12:38", "Jordan Rivera", "Mrs", "Willie", "Matthew", "Glass", "bjones", "1937-01", "1995-06", "CORP-EIN-58-8844708", "Germany", "China", "China", "France", "SSN-968-69-8707", "29", "Female", "Prefer not to say", "Canada", "Brazil", "India", "Spanish", "Islam", "Divorced", "0", "44300.65", "Bachelor's Degree", "Self-employed", "Armed forces logistics/support/administrative officer", "Entertainment", "Riley-Bartlett", "2", "Corporate investment banker", "4139691.1", "Secondary", "718.64", "Living with Family", "29", "FALSE", "3"],
+["0258e652-4d54-4289-ada4-f36cf380122b", "COMPANY", "Foley and Sons", "King-Dixon", "JPY", "Jacobhaven Branch", "SMS", "{\"facebook\": \"ftorres\", \"twitter\": null, \"linkedin\": \"murrayzachary\", \"instagram\": \"shannonmcpherson\"}", "405.56", "27-09-2023 12:38", "12/3/2025 12:38", "Stephanie Snyder", "Dr", "Christopher", "Amanda", "Schroeder", "melissapollard", "24-Jun-68", "010126I5H7", "CORP-HRB-80459", "Australia", "China", "Canada", "Australia", "STEUER-69474639065", "24", "Other", "African", "Japan", "Brazil", "United States", "Portuguese", "None/Atheist", "Divorced", "0", "137922.62", "Bachelor's Degree", "Student", "Engineer, civil (contracting)", "Hospitality", "Foley and Sons", "40", "Applications developer", "2272594.05", "Secondary", "337.67", "Mortgaged", "27", "TRUE", "1"],
+["CUST-03829574", "COMPANY", "Mitchell Group", "Anderson Inc", "EUR", "Alantown Branch", "Phone", "{\"facebook\": \"vaughanjeffrey\", \"twitter\": null, \"linkedin\": null, \"instagram\": \"katherine77\"}", "595.19", "15-06-2024 12:38", "12/3/2025 12:38", "Todd Hawkins", "Mr", "Kurt", "Harold", "Fields", "lbrooks", "12/3/1956", "2007", "CORP-CIN-L88146MH5PLC120371", "United Kingdom", "Canada", "China", "United Kingdom", "CTAX-PAN-AYUKK7287Y", "17", "Female", "African", "France", "China", "United States", "Chinese", "Islam", "Widowed", "4", "65072.26", "No Formal Education", "Student", "IT trainer", "Education", "Mitchell Group", "6", "Garment/textile technologist", "813430.9", "Primary", "741.46", "Mortgaged", "6", "TRUE", "3"],
+["CUST-15837097", "INDIVIDUAL", "Lloyd, Jones and Young", "Davis, Donaldson and Thompson", "EUR", "Lake John Branch", "In-Person", "{\"facebook\": \"kathy45\", \"twitter\": null, \"linkedin\": \"galexander\", \"instagram\": null}", "823.6", "9/12/2022 12:38", "12/3/2025 12:38", "Kevin Stevens", "Sri", "Brian", "Ricky", "Fuller", "eric12", "116793000", "2011-09", "STEUER-75 490 504 350", "China", "Germany", "Australia", "United States", "STEUER-37643110328", "35", "Other", "Indigenous", "Singapore", "France", "China", "Hindi", "Buddhism", "Divorced", "3", "44713.22", "Associate Degree", "Unemployed", "Occupational psychologist", "Finance", "Rodriguez-Patterson", "4", "Volunteer coordinator", "131662.6", "Primary", "375.7", "Rented", "28", "FALSE", "1"],
+["CUST-JCRPVAZR", "INDIVIDUAL", "Thomas-Richards", "Mitchell, Johnson and Martin", "JPY", "Donnaville Branch", "SMS", "{\"facebook\": \"cpeters\", \"twitter\": null, \"linkedin\": null, \"instagram\": null}", "785.57", "3/7/2022 12:38", "12/3/2025 12:38", "Troy Osborne", "Mrs", "Sarah", "Amanda", "Stanton", "bergermatthew", "4/4/1968", "6-Sep-03", "CID-927854197403202598", "Germany", "Japan", "France", "France", "GRID-220284195101091261", "51", "Prefer Not to Say", "Mixed", "India", "India", "India", "German", "Judaism", "Widowed", "3", "179563.21", "High School", "Unemployed", "Advertising account planner", "Retail", "Murray, Coffey and Jones", "14", "Film/video editor", "55474.14", "Primary", "730.47", "Rented", "15", "TRUE", "5"],
+["CUST-YDMEDFHX", "COMPANY", "Hicks, Fitzpatrick and Gutierrez", "Caldwell Inc", "GBP", "Hansenborough Branch", "In-Person", "{\"facebook\": \"richardpatterson\", \"twitter\": \"christinescott\", \"linkedin\": null, \"instagram\": \"janet15\"}", "735.96", "12/8/2023 12:38", "12/3/2025 12:38", "Maria Robinson", "Dr", "Debra", "Harold", "Vincent", "chaveznathan", "8/7/1971", "9/5/2017", "AADHAAR-3259-1568-9021", "United States", "Japan", "Canada", "Canada", "PAN-XBTTQ7990S", "89", "Other", "Prefer not to say", "Germany", "United Kingdom", "Singapore", "French", "Sikhism", "Widowed", "0", "57025.61", "Associate Degree", "Self-employed", "Stage manager", "Education", "Hardy-Munoz", "23", "Civil Service administrator", "24106.07", "Primary", "553.21", "Living with Family", "30", "FALSE", "1"],
+["CUST-68658121", "INDIVIDUAL", "Cole, Flores and Ellis", "Lutz-Mckenzie", "USD", "Tracychester Branch", "Chatbot", "{\"facebook\": \"smithallen\", \"twitter\": \"donnahernandez\", \"linkedin\": null, \"instagram\": \"heather62\"}", "427.99", "20-11-2023 12:38", "12/3/2025 12:38", "Pamela Barnes", "Mrs", "Richard", "April", "Barnes", "lindsayjackson", "6/10/1958", "12/9/2008", "NRIC-F9276367M", "United Kingdom", "Singapore", "United Kingdom", "India", "NRIC-T1353030P", "67", "Other", "Mixed", "Brazil", "India", "Germany", "French", "Prefer not to say", "Widowed", "4", "39041.71", "Bachelor's Degree", "Unemployed", "Risk manager", "Construction", "Luna and Sons", "18", "Make", "102963.43", "Secondary", "402.12", "Mortgaged", "30", "FALSE", "0"]
+  },
+  "answer": "The CUSTOMER table gives us the complete details on the user about their user information, family, assets, preffered contact, credit score and many more ."
+},
+  {
+    "instruction": "Explain the function of the customer_id column in customer-related data.",
+    "input": {
+      "column_name": "customer_id",
+      "sample_values": [
+        "QR-CUST1109618137",
+        "c53c8f14-5e25-4849-aa67-e5c51953c368",
+        "CUST-5185657",
+        "CUST-D3HGYC",
+        "LV1955-51246",
+        "NzExYzNjY2QtMjI0NS00",
+        "CUST-369078",
+        "20250411-73014",
+        "ZjQxMTk0MmYtYTg0ZS00",
+        "RFID-7EFD60302FD8307F",
+        "CUST-598058",
+        "MmJmYTgyZjgtYTZiYi00",
+        "SYD-2025-470771"
+      ]
+    },
+    "answer": "The customer_id column stores"
+  },
+  {
+    "instruction": "Explain the function of the customer_id column in customer-related data.",
+    "input": {
+      "column_name": "customer_id",
+      "sample_values": [
+        "LDN-2025-798055",
+        "RFID-3061BCE6979130C4",
+        "CUST-GILQ03",
+        "CUST-2IF02P",
+        "CUST-369078",
+        "CUST-368017",
+        "LDN-2025-306333",
+        "CUST-152919",
+        "RZ1978-76448",
+        "QR-CUST6444848578",
+        "CUST-939068",
+        "UK-16675193",
+        "PAR-2025-267563"
+      ]
+    },
+    "answer": "The customer_id column stores"
+  },
+  {
+    "instruction": "Explain the function of the customer_id column in customer-related data.",
+    "input": {
+      "column_name": "customer_id",
+      "sample_values": [
+        "CUST-K6SZGF",
+        "LDN-2025-993139",
+        "TV1953-13913",
+        "CUST-D5XZX4",
+        "QR-CUST9524002058",
+        "CUST-5AWULB",
+        "CUST-54K5RX",
+        "RFID-49BB4A74CA02F424",
+        "RFID-A8C8FCC05BD51D08",
+        "RFID-28F330438F581DF0",
+        "CUST-593125",
+        "CUST-6946675",
+        "SYD-2025-239775"
+      ]
+    },
+    "answer": "The customer_id column stores"
+  },
+  {
+    "instruction": "Explain the function of the entity_individual column in customer-related data.",
+    "input": {
+      "column_name": "entity_individual",
+      "sample_values": [
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "COMPANY",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "INDIVIDUAL"
+      ]
+    },
+    "answer": "The entity_individual column stores"
+  },
+  {
+    "instruction": "Explain the function of the entity_individual column in customer-related data.",
+    "input": {
+      "column_name": "entity_individual",
+      "sample_values": [
+        "INDIVIDUAL",
+        "COMPANY",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "COMPANY",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "COMPANY",
+        "INDIVIDUAL",
+        "COMPANY",
+        "INDIVIDUAL",
+        "INDIVIDUAL"
+      ]
+    },
+    "answer": "The entity_individual column stores"
+  },
+  {
+    "instruction": "Explain the function of the entity_individual column in customer-related data.",
+    "input": {
+      "column_name": "entity_individual",
+      "sample_values": [
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "COMPANY",
+        "COMPANY",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "INDIVIDUAL",
+        "COMPANY",
+        "INDIVIDUAL",
+        "COMPANY",
+        "INDIVIDUAL",
+        "COMPANY",
+        "INDIVIDUAL"
+      ]
+    },
+    "answer": "The entity_individual column stores"
+  },
+  {
+    "instruction": "Explain the function of the legal_company_name column in customer-related data.",
+    "input": {
+      "column_name": "legal_company_name",
+      "sample_values": [
+        "Gross, Rangel and Pham",
+        "Gomez Ltd",
+        "Jackson-Taylor",
+        "Clark-Roberts",
+        "Macdonald, Brooks and Lewis",
+        "Mason, Stephens and Caldwell",
+        "Simon-Davis",
+        "Love LLC",
+        "Cherry, Howard and Arroyo",
+        "Cherry-Aguilar",
+        "Townsend, Carter and Yates",
+        "Gomez-Hicks",
+        "Powell Ltd"
+      ]
+    },
+    "answer": "The legal_company_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the legal_company_name column in customer-related data.",
+    "input": {
+      "column_name": "legal_company_name",
+      "sample_values": [
+        "Chapman-Henson",
+        "Cruz, Hall and Bartlett",
+        "Savage-Alexander",
+        "Schneider and Sons",
+        "Stone and Sons",
+        "White, Rodriguez and Villanueva",
+        "Gilmore LLC",
+        "Garcia-Sullivan",
+        "Russell, Torres and Ramirez",
+        "Rubio-Cannon",
+        "Morales, Franklin and Burke",
+        "Potter Group",
+        "Gibbs PLC"
+      ]
+    },
+    "answer": "The legal_company_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the legal_company_name column in customer-related data.",
+    "input": {
+      "column_name": "legal_company_name",
+      "sample_values": [
+        "Porter Inc",
+        "Williams-Mendoza",
+        "Nelson, Williams and Davis",
+        "Collins, Ward and Berry",
+        "Johnson-Ross",
+        "Morgan Ltd",
+        "Sanchez Ltd",
+        "Jones-Carpenter",
+        "Riddle-Sanchez",
+        "Mitchell, Mayo and Richard",
+        "Espinoza, Todd and Morgan",
+        "Black Group",
+        "Clark Group"
+      ]
+    },
+    "answer": "The legal_company_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the company_trade_name column in customer-related data.",
+    "input": {
+      "column_name": "company_trade_name",
+      "sample_values": [
+        "Harris, Hays and Hall",
+        "Kelley Ltd",
+        "Wallace, Johnson and Perez",
+        "Schneider and Sons",
+        "Hernandez LLC",
+        "Daniels Inc",
+        "Nicholson Ltd",
+        "Robles Inc",
+        "Moore, Phelps and Cabrera",
+        "Hill, Hines and Zavala",
+        "Davis, Diaz and Hoover",
+        "Williams-Jenkins",
+        "Dominguez Group"
+      ]
+    },
+    "answer": "The company_trade_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the company_trade_name column in customer-related data.",
+    "input": {
+      "column_name": "company_trade_name",
+      "sample_values": [
+        "Berger-Taylor",
+        "Rogers PLC",
+        "Kline-Scott",
+        "Maxwell-Cunningham",
+        "Alvarez-Stein",
+        "Allen Inc",
+        "Jordan-Boyd",
+        "Myers, Evans and Cameron",
+        "Webb, Harris and Casey",
+        "Paul Inc",
+        "Brown and Sons",
+        "Morgan and Sons",
+        "Murphy, Mitchell and Chavez"
+      ]
+    },
+    "answer": "The company_trade_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the company_trade_name column in customer-related data.",
+    "input": {
+      "column_name": "company_trade_name",
+      "sample_values": [
+        "King, Diaz and Smith",
+        "Hoover PLC",
+        "Taylor LLC",
+        "Thomas Ltd",
+        "Waller-Kelley",
+        "Larson, Henry and Hopkins",
+        "Jones PLC",
+        "Ortega, Holmes and Cox",
+        "Farmer Group",
+        "Gross-Taylor",
+        "Wood-Parker",
+        "Harvey, Elliott and Lyons",
+        "Campbell-Thompson"
+      ]
+    },
+    "answer": "The company_trade_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the preferred_currency column in customer-related data.",
+    "input": {
+      "column_name": "preferred_currency",
+      "sample_values": [
+        "USD",
+        "JPY",
+        "INR",
+        "GBP",
+        "EUR",
+        "JPY",
+        "EUR",
+        "EUR",
+        "EUR",
+        "EUR",
+        "INR",
+        "GBP",
+        "INR"
+      ]
+    },
+    "answer": "The preferred_currency column stores"
+  },
+  {
+    "instruction": "Explain the function of the preferred_currency column in customer-related data.",
+    "input": {
+      "column_name": "preferred_currency",
+      "sample_values": [
+        "USD",
+        "JPY",
+        "EUR",
+        "JPY",
+        "USD",
+        "USD",
+        "GBP",
+        "USD",
+        "USD",
+        "EUR",
+        "INR",
+        "USD",
+        "JPY"
+      ]
+    },
+    "answer": "The preferred_currency column stores"
+  },
+  {
+    "instruction": "Explain the function of the preferred_currency column in customer-related data.",
+    "input": {
+      "column_name": "preferred_currency",
+      "sample_values": [
+        "GBP",
+        "GBP",
+        "USD",
+        "GBP",
+        "GBP",
+        "USD",
+        "EUR",
+        "USD",
+        "JPY",
+        "EUR",
+        "USD",
+        "USD",
+        "EUR"
+      ]
+    },
+    "answer": "The preferred_currency column stores"
+  },
+  {
+    "instruction": "Explain the function of the preferred_branch column in customer-related data.",
+    "input": {
+      "column_name": "preferred_branch",
+      "sample_values": [
+        "Lake Sara Branch",
+        "South Jamesland Branch",
+        "Lake Tammy Branch",
+        "West Mary Branch",
+        "Ryanville Branch",
+        "Joshuaview Branch",
+        "Juliefurt Branch",
+        "New Erinshire Branch",
+        "Lake Ryan Branch",
+        "Calhountown Branch",
+        "North Edgarside Branch",
+        "Fordshire Branch",
+        "New Cheyennefurt Branch"
+      ]
+    },
+    "answer": "The preferred_branch column stores"
+  },
+  {
+    "instruction": "Explain the function of the preferred_branch column in customer-related data.",
+    "input": {
+      "column_name": "preferred_branch",
+      "sample_values": [
+        "Masonbury Branch",
+        "Donnaland Branch",
+        "East Craigburgh Branch",
+        "Pricebury Branch",
+        "South Jared Branch",
+        "West Allison Branch",
+        "New Chasechester Branch",
+        "East Lauren Branch",
+        "East Robert Branch",
+        "Waltersfurt Branch",
+        "West Dennismouth Branch",
+        "Paulton Branch",
+        "Wrightton Branch"
+      ]
+    },
+    "answer": "The preferred_branch column stores"
+  },
+  {
+    "instruction": "Explain the function of the preferred_branch column in customer-related data.",
+    "input": {
+      "column_name": "preferred_branch",
+      "sample_values": [
+        "Crystalmouth Branch",
+        "Wendychester Branch",
+        "West Glendastad Branch",
+        "South Monica Branch",
+        "Flowershaven Branch",
+        "New Kendra Branch",
+        "Lake Aaron Branch",
+        "North Justinburgh Branch",
+        "Briggsside Branch",
+        "Port Anthony Branch",
+        "Davidsonhaven Branch",
+        "East Jessicashire Branch",
+        "Elizabethbury Branch"
+      ]
+    },
+    "answer": "The preferred_branch column stores"
+  },
+  {
+    "instruction": "Explain the function of the preferred_contact_method column in customer-related data.",
+    "input": {
+      "column_name": "preferred_contact_method",
+      "sample_values": [
+        "In-Person",
+        "Phone",
+        "Email",
+        "Chatbot",
+        "Email",
+        "Phone",
+        "In-Person",
+        "SMS",
+        "Phone",
+        "Chatbot",
+        "Phone",
+        "SMS",
+        "Phone"
+      ]
+    },
+    "answer": "The preferred_contact_method column stores"
+  },
+  {
+    "instruction": "Explain the function of the preferred_contact_method column in customer-related data.",
+    "input": {
+      "column_name": "preferred_contact_method",
+      "sample_values": [
+        "Email",
+        "Chatbot",
+        "Email",
+        "In-Person",
+        "SMS",
+        "SMS",
+        "In-Person",
+        "Email",
+        "Email",
+        "Phone",
+        "Chatbot",
+        "Email",
+        "SMS"
+      ]
+    },
+    "answer": "The preferred_contact_method column stores"
+  },
+  {
+    "instruction": "Explain the function of the preferred_contact_method column in customer-related data.",
+    "input": {
+      "column_name": "preferred_contact_method",
+      "sample_values": [
+        "SMS",
+        "SMS",
+        "Chatbot",
+        "Chatbot",
+        "Email",
+        "Chatbot",
+        "Chatbot",
+        "Email",
+        "Phone",
+        "Chatbot",
+        "In-Person",
+        "Chatbot",
+        "Phone"
+      ]
+    },
+    "answer": "The preferred_contact_method column stores"
+  },
+  {
+    "instruction": "Explain the function of the social_media_presence column in customer-related data.",
+    "input": {
+      "column_name": "social_media_presence",
+      "sample_values": [
+        "{\"facebook\": null, \"twitter\": null, \"linkedin\": null, \"instagram\": null}",
+        "{\"facebook\": null, \"twitter\": \"lewisalexandra\", \"linkedin\": null, \"instagram\": null}",
+        "{\"facebook\": \"frankpeterson\", \"twitter\": \"samanthawells\", \"linkedin\": \"owenjermaine\", \"instagram\": \"anthonyleon\"}",
+        "{\"facebook\": \"michael53\", \"twitter\": null, \"linkedin\": null, \"instagram\": \"stevenbruce\"}",
+        "{\"facebook\": \"brian26\", \"twitter\": null, \"linkedin\": \"carolbennett\", \"instagram\": \"olivia37\"}",
+        "{\"facebook\": \"dillon01\", \"twitter\": null, \"linkedin\": null, \"instagram\": \"hpeters\"}",
+        "{\"facebook\": \"parkerdeborah\", \"twitter\": \"kbowen\", \"linkedin\": null, \"instagram\": \"jeffrey46\"}",
+        "{\"facebook\": \"robertseric\", \"twitter\": null, \"linkedin\": null, \"instagram\": \"charles39\"}",
+        "{\"facebook\": \"stephaniewallace\", \"twitter\": \"frenchkathryn\", \"linkedin\": null, \"instagram\": \"npoole\"}",
+        "{\"facebook\": \"amyalvarez\", \"twitter\": null, \"linkedin\": \"kempvanessa\", \"instagram\": \"cgaines\"}",
+        "{\"facebook\": \"floydcourtney\", \"twitter\": \"rodriguezbrady\", \"linkedin\": \"joseph89\", \"instagram\": \"dorothywright\"}",
+        "{\"facebook\": \"amandaalvarez\", \"twitter\": \"bhoffman\", \"linkedin\": null, \"instagram\": \"amypena\"}",
+        "{\"facebook\": \"kaitlyn87\", \"twitter\": \"zwilliams\", \"linkedin\": \"bennettian\", \"instagram\": \"williammullen\"}"
+      ]
+    },
+    "answer": "The social_media_presence column stores"
+  },
+  {
+    "instruction": "Explain the function of the social_media_presence column in customer-related data.",
+    "input": {
+      "column_name": "social_media_presence",
+      "sample_values": [
+        "{\"facebook\": null, \"twitter\": null, \"linkedin\": \"paynegregory\", \"instagram\": \"rmartinez\"}",
+        "{\"facebook\": \"lauren81\", \"twitter\": null, \"linkedin\": \"albertalvarado\", \"instagram\": null}",
+        "{\"facebook\": \"aanthony\", \"twitter\": \"jacksonjimmy\", \"linkedin\": \"jennifer67\", \"instagram\": \"desiree41\"}",
+        "{\"facebook\": null, \"twitter\": \"barbaragoodwin\", \"linkedin\": null, \"instagram\": \"rodriguezkayla\"}",
+        "{\"facebook\": null, \"twitter\": \"kmorris\", \"linkedin\": null, \"instagram\": null}",
+        "{\"facebook\": \"kim08\", \"twitter\": \"jmaldonado\", \"linkedin\": \"april29\", \"instagram\": \"uobrien\"}",
+        "{\"facebook\": null, \"twitter\": \"sharihoward\", \"linkedin\": \"shelby21\", \"instagram\": null}",
+        "{\"facebook\": \"keith50\", \"twitter\": \"iriley\", \"linkedin\": \"hannah49\", \"instagram\": \"stewartamanda\"}",
+        "{\"facebook\": null, \"twitter\": \"fowlerpeter\", \"linkedin\": null, \"instagram\": null}",
+        "{\"facebook\": null, \"twitter\": \"ashley45\", \"linkedin\": null, \"instagram\": \"daviesnicholas\"}",
+        "{\"facebook\": null, \"twitter\": \"eeverett\", \"linkedin\": null, \"instagram\": \"michael11\"}",
+        "{\"facebook\": null, \"twitter\": null, \"linkedin\": \"jonathan30\", \"instagram\": \"glawrence\"}",
+        "{\"facebook\": null, \"twitter\": \"phelpsjohnny\", \"linkedin\": \"robertcannon\", \"instagram\": \"randerson\"}"
+      ]
+    },
+    "answer": "The social_media_presence column stores"
+  },
+  {
+    "instruction": "Explain the function of the social_media_presence column in customer-related data.",
+    "input": {
+      "column_name": "social_media_presence",
+      "sample_values": [
+        "{\"facebook\": null, \"twitter\": \"erika57\", \"linkedin\": null, \"instagram\": \"jennifer92\"}",
+        "{\"facebook\": \"qtucker\", \"twitter\": null, \"linkedin\": \"loriharrison\", \"instagram\": \"reevesjoshua\"}",
+        "{\"facebook\": \"sandersjoseph\", \"twitter\": null, \"linkedin\": \"parkerlauren\", \"instagram\": null}",
+        "{\"facebook\": \"vanessa73\", \"twitter\": \"katherine52\", \"linkedin\": null, \"instagram\": null}",
+        "{\"facebook\": \"shannonwatts\", \"twitter\": null, \"linkedin\": \"william11\", \"instagram\": \"youngcharles\"}",
+        "{\"facebook\": \"carloswilliams\", \"twitter\": \"melissajohnson\", \"linkedin\": \"allenjones\", \"instagram\": \"kevinmartin\"}",
+        "{\"facebook\": \"gmiller\", \"twitter\": null, \"linkedin\": null, \"instagram\": \"garciachristopher\"}",
+        "{\"facebook\": null, \"twitter\": \"villegasgabriel\", \"linkedin\": \"pwillis\", \"instagram\": \"taylortiffany\"}",
+        "{\"facebook\": \"ebarnes\", \"twitter\": null, \"linkedin\": null, \"instagram\": \"jdecker\"}",
+        "{\"facebook\": \"tamaraharris\", \"twitter\": null, \"linkedin\": null, \"instagram\": null}",
+        "{\"facebook\": \"zdavis\", \"twitter\": null, \"linkedin\": \"kathy60\", \"instagram\": \"ilarson\"}",
+        "{\"facebook\": null, \"twitter\": \"brian95\", \"linkedin\": null, \"instagram\": \"debramurphy\"}",
+        "{\"facebook\": \"jsimpson\", \"twitter\": null, \"linkedin\": null, \"instagram\": \"melissavalenzuela\"}"
+      ]
+    },
+    "answer": "The social_media_presence column stores"
+  },
+  {
+    "instruction": "Explain the function of the risk_score column in customer-related data.",
+    "input": {
+      "column_name": "risk_score",
+      "sample_values": [
+        "449.21",
+        "477.61",
+        "553.76",
+        "473.1",
+        "795.19",
+        "519.32",
+        "774.13",
+        "787.66",
+        "804.39",
+        "588.51",
+        "539.57",
+        "313.55",
+        "695.05"
+      ]
+    },
+    "answer": "The risk_score column stores"
+  },
+  {
+    "instruction": "Explain the function of the risk_score column in customer-related data.",
+    "input": {
+      "column_name": "risk_score",
+      "sample_values": [
+        "582.92",
+        "366.57",
+        "369.16",
+        "502.88",
+        "575.85",
+        "732.07",
+        "391.66",
+        "564.36",
+        "594.33",
+        "807.66",
+        "649.15",
+        "742.69",
+        "503.03"
+      ]
+    },
+    "answer": "The risk_score column stores"
+  },
+  {
+    "instruction": "Explain the function of the risk_score column in customer-related data.",
+    "input": {
+      "column_name": "risk_score",
+      "sample_values": [
+        "414.95",
+        "396.32",
+        "684.93",
+        "640.64",
+        "776.78",
+        "342.33",
+        "588.97",
+        "466.44",
+        "313.98",
+        "557.62",
+        "351.98",
+        "486.24",
+        "349.58"
+      ]
+    },
+    "answer": "The risk_score column stores"
+  },
+  {
+    "instruction": "Explain the function of the created_at column in customer-related data.",
+    "input": {
+      "column_name": "created_at",
+      "sample_values": [
+        "20-01-2023 12:38",
+        "2024-02-11 12:38:00",
+        "2023-06-11 12:38:00",
+        "16-09-2022 12:38",
+        "21-12-2023 12:38",
+        "13-11-2022 12:38",
+        "2024-10-03 12:38:00",
+        "19-09-2022 12:38",
+        "2023-03-06 12:38:00",
+        "2024-06-04 12:38:00",
+        "2023-05-02 12:38:00",
+        "16-11-2022 12:38",
+        "29-09-2023 12:38"
+      ]
+    },
+    "answer": "The created_at column stores"
+  },
+  {
+    "instruction": "Explain the function of the created_at column in customer-related data.",
+    "input": {
+      "column_name": "created_at",
+      "sample_values": [
+        "2022-03-11 12:38:00",
+        "15-11-2024 12:38",
+        "28-05-2023 12:38",
+        "27-05-2024 12:38",
+        "29-10-2023 12:38",
+        "14-04-2023 12:38",
+        "25-07-2022 12:38",
+        "14-05-2023 12:38",
+        "19-10-2022 12:38",
+        "2024-03-04 12:38:00",
+        "2022-10-10 12:38:00",
+        "29-10-2023 12:38",
+        "2024-01-12 12:38:00"
+      ]
+    },
+    "answer": "The created_at column stores"
+  },
+  {
+    "instruction": "Explain the function of the created_at column in customer-related data.",
+    "input": {
+      "column_name": "created_at",
+      "sample_values": [
+        "2023-09-10 12:38:00",
+        "21-06-2023 12:38",
+        "28-08-2024 12:38",
+        "25-11-2023 12:38",
+        "20-05-2024 12:38",
+        "25-06-2022 12:38",
+        "18-12-2023 12:38",
+        "2024-01-11 12:38:00",
+        "22-02-2025 12:38",
+        "2023-11-10 12:38:00",
+        "24-11-2024 12:38",
+        "21-03-2024 12:38",
+        "30-06-2024 12:38"
+      ]
+    },
+    "answer": "The created_at column stores"
+  },
+  {
+    "instruction": "Explain the function of the updated_at column in customer-related data.",
+    "input": {
+      "column_name": "updated_at",
+      "sample_values": [
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00"
+      ]
+    },
+    "answer": "The updated_at column stores"
+  },
+  {
+    "instruction": "Explain the function of the updated_at column in customer-related data.",
+    "input": {
+      "column_name": "updated_at",
+      "sample_values": [
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00"
+      ]
+    },
+    "answer": "The updated_at column stores"
+  },
+  {
+    "instruction": "Explain the function of the updated_at column in customer-related data.",
+    "input": {
+      "column_name": "updated_at",
+      "sample_values": [
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00",
+        "2025-12-03 12:38:00"
+      ]
+    },
+    "answer": "The updated_at column stores"
+  },
+  {
+    "instruction": "Explain the function of the full_legal_name column in customer-related data.",
+    "input": {
+      "column_name": "full_legal_name",
+      "sample_values": [
+        "Rodney Bryant",
+        "Belinda Duncan",
+        "Brooke Powell",
+        "Michael Curtis",
+        "Steven Hayes",
+        "Haley Lopez",
+        "Sierra Scott",
+        "Brandon Simon",
+        "Daniel Norman",
+        "Krystal Odom",
+        "Darren Wood",
+        "Lorraine Martin",
+        "Amber Franklin"
+      ]
+    },
+    "answer": "The full_legal_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the full_legal_name column in customer-related data.",
+    "input": {
+      "column_name": "full_legal_name",
+      "sample_values": [
+        "Thomas Lopez",
+        "Jennifer Ramos",
+        "Daniel Hall",
+        "Mark Ballard",
+        "Victoria Clark",
+        "Shaun Mccoy",
+        "Blake Jackson",
+        "John Barrett",
+        "Micheal Wise",
+        "Rebecca Garcia",
+        "Bobby Reyes",
+        "Daniel Bean",
+        "John Ponce"
+      ]
+    },
+    "answer": "The full_legal_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the full_legal_name column in customer-related data.",
+    "input": {
+      "column_name": "full_legal_name",
+      "sample_values": [
+        "Corey Smith",
+        "Amy Marshall",
+        "Amanda Meyers",
+        "Timothy Jones",
+        "Christopher Obrien",
+        "Samuel Hamilton",
+        "Brett Garcia",
+        "Alexandra Fox",
+        "Christine Smith",
+        "Meagan Sullivan",
+        "Kevin Barajas",
+        "Jason Lopez",
+        "Robert Wilkins"
+      ]
+    },
+    "answer": "The full_legal_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the name_prefix column in customer-related data.",
+    "input": {
+      "column_name": "name_prefix",
+      "sample_values": [
+        "Mrs",
+        "Junior",
+        "Sri",
+        "Dr",
+        "Mrs",
+        "Junior",
+        "Prof",
+        "Ms",
+        "Dr",
+        "Prof",
+        "Mrs",
+        "Smt",
+        "Mr"
+      ]
+    },
+    "answer": "The name_prefix column stores"
+  },
+  {
+    "instruction": "Explain the function of the name_prefix column in customer-related data.",
+    "input": {
+      "column_name": "name_prefix",
+      "sample_values": [
+        "Mrs",
+        "Mr",
+        "Dr",
+        "Sri",
+        "Mrs",
+        "Mr",
+        "Mrs",
+        "Smt",
+        "Prof",
+        "Prof",
+        "Mr",
+        "Mr",
+        "Dr"
+      ]
+    },
+    "answer": "The name_prefix column stores"
+  },
+  {
+    "instruction": "Explain the function of the name_prefix column in customer-related data.",
+    "input": {
+      "column_name": "name_prefix",
+      "sample_values": [
+        "Sri",
+        "Junior",
+        "Junior",
+        "Prof",
+        "Smt",
+        "Dr",
+        "Smt",
+        "Smt",
+        "Mrs",
+        "Dr",
+        "Dr",
+        "Mrs",
+        "Mr"
+      ]
+    },
+    "answer": "The name_prefix column stores"
+  },
+  {
+    "instruction": "Explain the function of the first_name column in customer-related data.",
+    "input": {
+      "column_name": "first_name",
+      "sample_values": [
+        "Paul",
+        "Kimberly",
+        "Katie",
+        "Jasmine",
+        "Andre",
+        "Cheyenne",
+        "Victor",
+        "David",
+        "Daniel",
+        "Jessica",
+        "David",
+        "Matthew",
+        "Kyle"
+      ]
+    },
+    "answer": "The first_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the first_name column in customer-related data.",
+    "input": {
+      "column_name": "first_name",
+      "sample_values": [
+        "Mary",
+        "Willie",
+        "Stephanie",
+        "Taylor",
+        "Sherry",
+        "Michelle",
+        "Steven",
+        "Amanda",
+        "Mark",
+        "Kyle",
+        "Michelle",
+        "Rebecca",
+        "April"
+      ]
+    },
+    "answer": "The first_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the first_name column in customer-related data.",
+    "input": {
+      "column_name": "first_name",
+      "sample_values": [
+        "Wesley",
+        "Candice",
+        "John",
+        "Mary",
+        "Rickey",
+        "Brandon",
+        "Joshua",
+        "Erik",
+        "Luis",
+        "Shawn",
+        "Kristen",
+        "Heather",
+        "Frances"
+      ]
+    },
+    "answer": "The first_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the middle_name column in customer-related data.",
+    "input": {
+      "column_name": "middle_name",
+      "sample_values": [
+        "Kelli",
+        "Michael",
+        "Elizabeth",
+        "Laura",
+        "Paul",
+        "John",
+        "Zachary",
+        "Patricia",
+        "Cheryl",
+        "Kim",
+        "Lynn",
+        "Emily",
+        "Donald"
+      ]
+    },
+    "answer": "The middle_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the middle_name column in customer-related data.",
+    "input": {
+      "column_name": "middle_name",
+      "sample_values": [
+        "Monica",
+        "Don",
+        "Stephanie",
+        "Jessica",
+        "Laura",
+        "Shirley",
+        "Suzanne",
+        "Matthew",
+        "Ashley",
+        "Michael",
+        "Micheal",
+        "Brittany",
+        "Francis"
+      ]
+    },
+    "answer": "The middle_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the middle_name column in customer-related data.",
+    "input": {
+      "column_name": "middle_name",
+      "sample_values": [
+        "Alejandra",
+        "Eric",
+        "Derek",
+        "Shane",
+        "Jared",
+        "Brittany",
+        "Frank",
+        "Kirk",
+        "Anthony",
+        "Katherine",
+        "John",
+        "Amanda",
+        "Carolyn"
+      ]
+    },
+    "answer": "The middle_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the last_name column in customer-related data.",
+    "input": {
+      "column_name": "last_name",
+      "sample_values": [
+        "Black",
+        "Booth",
+        "Hamilton",
+        "Gonzalez",
+        "Harper",
+        "Hodge",
+        "Johnson",
+        "Brown",
+        "Davis",
+        "Taylor",
+        "Schultz",
+        "Lopez",
+        "Lozano"
+      ]
+    },
+    "answer": "The last_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the last_name column in customer-related data.",
+    "input": {
+      "column_name": "last_name",
+      "sample_values": [
+        "Davis",
+        "Pena",
+        "Freeman",
+        "Arnold",
+        "Miller",
+        "Dickerson",
+        "Adkins",
+        "Jones",
+        "Villa",
+        "Austin",
+        "Carr",
+        "Harper",
+        "Hall"
+      ]
+    },
+    "answer": "The last_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the last_name column in customer-related data.",
+    "input": {
+      "column_name": "last_name",
+      "sample_values": [
+        "Figueroa",
+        "Shields",
+        "Johnson",
+        "Morris",
+        "Murphy",
+        "Acosta",
+        "Fox",
+        "Jordan",
+        "Black",
+        "Richardson",
+        "Wilson",
+        "Lawson",
+        "Aguilar"
+      ]
+    },
+    "answer": "The last_name column stores"
+  },
+  {
+    "instruction": "Explain the function of the alias column in customer-related data.",
+    "input": {
+      "column_name": "alias",
+      "sample_values": [
+        "deleonsherry",
+        "taylorbarbara",
+        "christopherleonard",
+        "starkjennifer",
+        "ycarter",
+        "hernandezscott",
+        "david02",
+        "robertlee",
+        "susanadams",
+        "wallaceconnie",
+        "fchambers",
+        "gary43",
+        "rcalhoun"
+      ]
+    },
+    "answer": "The alias column stores"
+  },
+  {
+    "instruction": "Explain the function of the alias column in customer-related data.",
+    "input": {
+      "column_name": "alias",
+      "sample_values": [
+        "ortizrachael",
+        "robinwallace",
+        "reedlauren",
+        "matthew78",
+        "vincentmoses",
+        "marksstephen",
+        "wendycobb",
+        "matthew14",
+        "hoffmanrichard",
+        "lynnwilliams",
+        "jennifersparks",
+        "jstout",
+        "david02"
+      ]
+    },
+    "answer": "The alias column stores"
+  },
+  {
+    "instruction": "Explain the function of the alias column in customer-related data.",
+    "input": {
+      "column_name": "alias",
+      "sample_values": [
+        "anthonyjones",
+        "robert75",
+        "santosamy",
+        "amanda56",
+        "eharris",
+        "carrdominic",
+        "eatonrodney",
+        "angelhansen",
+        "browningjennifer",
+        "adrian87",
+        "ocarlson",
+        "fmartinez",
+        "danielle74"
+      ]
+    },
+    "answer": "The alias column stores"
+  },
+  {
+    "instruction": "Explain the function of the date_of_birth column in customer-related data.",
+    "input": {
+      "column_name": "date_of_birth",
+      "sample_values": [
+        "1962-04-18 00:00:00",
+        "24/10/1954",
+        "1968-02-11",
+        "02 December 1956",
+        "22-02-1951",
+        "897503400",
+        "20-02-1957",
+        "2004-11",
+        "1994-06",
+        "1950160",
+        "1973-08-07 00:00:00",
+        "1954-04-02 00:00:00",
+        "12/06/1950"
+      ]
+    },
+    "answer": "The date_of_birth column stores"
+  },
+  {
+    "instruction": "Explain the function of the date_of_birth column in customer-related data.",
+    "input": {
+      "column_name": "date_of_birth",
+      "sample_values": [
+        "26 November 1994",
+        "1955-02-24",
+        "1965-01-10",
+        "04 March 1958",
+        "1970-10-13",
+        "12/10/1958",
+        "1966-04-05 00:00:00",
+        "1963-11-20",
+        "1953",
+        "18-08-80",
+        "04-09-1989",
+        "22-04-61",
+        "24 September 1985"
+      ]
+    },
+    "answer": "The date_of_birth column stores"
+  },
+  {
+    "instruction": "Explain the function of the date_of_birth column in customer-related data.",
+    "input": {
+      "column_name": "date_of_birth",
+      "sample_values": [
+        "1996",
+        "26-08-1977",
+        "25/05/2002",
+        "11/03/1985",
+        "1999-11-01",
+        "28/09/1984",
+        "820914EZQX",
+        "17/10/1996",
+        "18-MAY-1964",
+        "31-05-73",
+        "05/26/1967",
+        "1955-05-06",
+        "1959-08"
+      ]
+    },
+    "answer": "The date_of_birth column stores"
+  },
+  {
+    "instruction": "Explain the function of the date_of_incorporation column in customer-related data.",
+    "input": {
+      "column_name": "date_of_incorporation",
+      "sample_values": [
+        "2018",
+        "2014-04-11 00:00:00",
+        "1999",
+        "1001529000",
+        "071214LIV2",
+        "2006-03-10 00:00:00",
+        "1614709800",
+        "16-05-2016",
+        "2002233",
+        "140726CCKX",
+        "1675189800",
+        "2017",
+        "1669746600"
+      ]
+    },
+    "answer": "The date_of_incorporation column stores"
+  },
+  {
+    "instruction": "Explain the function of the date_of_incorporation column in customer-related data.",
+    "input": {
+      "column_name": "date_of_incorporation",
+      "sample_values": [
+        "2001-12-27 00:00:00",
+        "1085941800",
+        "2019-07-12 00:00:00",
+        "1996-07-02 00:00:00",
+        "201111P2O7",
+        "1998-06-06 00:00:00",
+        "862857000",
+        "25-11-2023",
+        "1421173800",
+        "1995-08-08 00:00:00",
+        "1999-03",
+        "2001",
+        "2013-04"
+      ]
+    },
+    "answer": "The date_of_incorporation column stores"
+  },
+  {
+    "instruction": "Explain the function of the date_of_incorporation column in customer-related data.",
+    "input": {
+      "column_name": "date_of_incorporation",
+      "sample_values": [
+        "2019-09-03 00:00:00",
+        "1423074600",
+        "24-03-2000",
+        "2007-12-04 00:00:00",
+        "2009",
+        "18-07-2020 00:00",
+        "080315AD8T",
+        "19-04-2020",
+        "2010-08-09 00:00:00",
+        "22-02-2000",
+        "1997-12",
+        "1998",
+        "2017-09-05 00:00:00"
+      ]
+    },
+    "answer": "The date_of_incorporation column stores"
+  },
+  {
+    "instruction": "Explain the function of the national_id column in customer-related data.",
+    "input": {
+      "column_name": "national_id",
+      "sample_values": [
+        "UK-7662745973",
+        "C88E49C7",
+        "9275009158",
+        "XZ1837638",
+        "KW2336956",
+        "AE8634863",
+        "201-456-4922",
+        "QR-5249522066",
+        "XN-581657-P",
+        "QR-6598426817",
+        "19760221-9696",
+        "BS3175267",
+        "19950130-5730"
+      ]
+    },
+    "answer": "The national_id column stores"
+  },
+  {
+    "instruction": "Explain the function of the national_id column in customer-related data.",
+    "input": {
+      "column_name": "national_id",
+      "sample_values": [
+        "QR-1037704127",
+        "5387304764",
+        "F5578599",
+        "19840229-8685",
+        "19940419-4508",
+        "3373222941",
+        "RFID-AA38A8C14EA9716A",
+        "19600920-4298",
+        "4937C535",
+        "01B3281E",
+        "RFID-B4FE1264A1CF6226",
+        "UK-4994988288",
+        "QR-1498520186"
+      ]
+    },
+    "answer": "The national_id column stores"
+  },
+  {
+    "instruction": "Explain the function of the national_id column in customer-related data.",
+    "input": {
+      "column_name": "national_id",
+      "sample_values": [
+        "RO-580298-S",
+        "XM8404544",
+        "152-748-4849",
+        "010-824-6417",
+        "QR-2703388198",
+        "6197406554",
+        "305-463-3910",
+        "CA-2758988455",
+        "220-984-6181",
+        "NP-957220-S",
+        "QV7834366",
+        "RFID-1BB5EB183A008259",
+        "JA-526066-U"
+      ]
+    },
+    "answer": "The national_id column stores"
+  },
+  {
+    "instruction": "Explain the function of the country_of_legal_formation column in customer-related data.",
+    "input": {
+      "column_name": "country_of_legal_formation",
+      "sample_values": [
+        "India",
+        "Australia",
+        "Germany",
+        "India",
+        "Singapore",
+        "Brazil",
+        "Singapore",
+        "France",
+        "Brazil",
+        "Canada",
+        "China",
+        "Germany",
+        "France"
+      ]
+    },
+    "answer": "The country_of_legal_formation column stores"
+  },
+  {
+    "instruction": "Explain the function of the country_of_legal_formation column in customer-related data.",
+    "input": {
+      "column_name": "country_of_legal_formation",
+      "sample_values": [
+        "United Kingdom",
+        "India",
+        "Brazil",
+        "United States",
+        "China",
+        "Singapore",
+        "Germany",
+        "Germany",
+        "China",
+        "United Kingdom",
+        "India",
+        "Germany",
+        "Singapore"
+      ]
+    },
+    "answer": "The country_of_legal_formation column stores"
+  },
+  {
+    "instruction": "Explain the function of the country_of_legal_formation column in customer-related data.",
+    "input": {
+      "column_name": "country_of_legal_formation",
+      "sample_values": [
+        "Canada",
+        "Japan",
+        "China",
+        "Japan",
+        "Canada",
+        "Japan",
+        "Canada",
+        "Germany",
+        "Brazil",
+        "China",
+        "Germany",
+        "Canada",
+        "Singapore"
+      ]
+    },
+    "answer": "The country_of_legal_formation column stores"
+  },
+  {
+    "instruction": "Explain the function of the country_of_birth column in customer-related data.",
+    "input": {
+      "column_name": "country_of_birth",
+      "sample_values": [
+        "China",
+        "Japan",
+        "Australia",
+        "United Kingdom",
+        "United States",
+        "China",
+        "Canada",
+        "Japan",
+        "Germany",
+        "France",
+        "Japan",
+        "India",
+        "Singapore"
+      ]
+    },
+    "answer": "The country_of_birth column stores"
+  },
+  {
+    "instruction": "Explain the function of the country_of_birth column in customer-related data.",
+    "input": {
+      "column_name": "country_of_birth",
+      "sample_values": [
+        "China",
+        "United Kingdom",
+        "China",
+        "China",
+        "United States",
+        "Australia",
+        "United States",
+        "Brazil",
+        "Brazil",
+        "China",
+        "India",
+        "Singapore",
+        "Singapore"
+      ]
+    },
+    "answer": "The country_of_birth column stores"
+  },
+  {
+    "instruction": "Explain the function of the country_of_birth column in customer-related data.",
+    "input": {
+      "column_name": "country_of_birth",
+      "sample_values": [
+        "Brazil",
+        "United States",
+        "France",
+        "France",
+        "China",
+        "Singapore",
+        "Germany",
+        "Germany",
+        "France",
+        "India",
+        "India",
+        "China",
+        "Germany"
+      ]
+    },
+    "answer": "The country_of_birth column stores"
+  },
+  {
+    "instruction": "Explain the function of the country_of_principle_business column in customer-related data.",
+    "input": {
+      "column_name": "country_of_principle_business",
+      "sample_values": [
+        "Germany",
+        "Brazil",
+        "France",
+        "Japan",
+        "United Kingdom",
+        "Brazil",
+        "China",
+        "United Kingdom",
+        "Australia",
+        "China",
+        "China",
+        "India",
+        "Canada"
+      ]
+    },
+    "answer": "The country_of_principle_business column stores"
+  },
+  {
+    "instruction": "Explain the function of the country_of_principle_business column in customer-related data.",
+    "input": {
+      "column_name": "country_of_principle_business",
+      "sample_values": [
+        "France",
+        "China",
+        "Germany",
+        "Singapore",
+        "Japan",
+        "Singapore",
+        "Australia",
+        "India",
+        "Japan",
+        "Australia",
+        "China",
+        "United Kingdom",
+        "Australia"
+      ]
+    },
+    "answer": "The country_of_principle_business column stores"
+  },
+  {
+    "instruction": "Explain the function of the country_of_principle_business column in customer-related data.",
+    "input": {
+      "column_name": "country_of_principle_business",
+      "sample_values": [
+        "Germany",
+        "Canada",
+        "United Kingdom",
+        "France",
+        "Singapore",
+        "China",
+        "Australia",
+        "France",
+        "Australia",
+        "United States",
+        "Singapore",
+        "Brazil",
+        "Japan"
+      ]
+    },
+    "answer": "The country_of_principle_business column stores"
+  },
+  {
+    "instruction": "Explain the function of the country_of_primary_residence column in customer-related data.",
+    "input": {
+      "column_name": "country_of_primary_residence",
+      "sample_values": [
+        "Germany",
+        "United Kingdom",
+        "United States",
+        "Brazil",
+        "Japan",
+        "Singapore",
+        "Brazil",
+        "Canada",
+        "India",
+        "India",
+        "Germany",
+        "India",
+        "Australia"
+      ]
+    },
+    "answer": "The country_of_primary_residence column stores"
+  },
+  {
+    "instruction": "Explain the function of the country_of_primary_residence column in customer-related data.",
+    "input": {
+      "column_name": "country_of_primary_residence",
+      "sample_values": [
+        "Germany",
+        "Germany",
+        "United States",
+        "India",
+        "Singapore",
+        "China",
+        "China",
+        "China",
+        "Canada",
+        "France",
+        "Germany",
+        "Canada",
+        "United Kingdom"
+      ]
+    },
+    "answer": "The country_of_primary_residence column stores"
+  },
+  {
+    "instruction": "Explain the function of the country_of_primary_residence column in customer-related data.",
+    "input": {
+      "column_name": "country_of_primary_residence",
+      "sample_values": [
+        "China",
+        "Canada",
+        "Germany",
+        "Japan",
+        "China",
+        "India",
+        "Canada",
+        "Germany",
+        "United Kingdom",
+        "France",
+        "Brazil",
+        "Germany",
+        "Brazil"
+      ]
+    },
+    "answer": "The country_of_primary_residence column stores"
+  },
+  {
+    "instruction": "Explain the function of the tax_id column in customer-related data.",
+    "input": {
+      "column_name": "tax_id",
+      "sample_values": [
+        "610CC0B1",
+        "275-41-8830",
+        "QR-761484409",
+        "UL-708221-C",
+        "QR-393514707",
+        "19580502-8225",
+        "SY-527218-Y",
+        "19790117-2459",
+        "DD66C887",
+        "32F94EC5",
+        "19830302-2134",
+        "LU1892518",
+        "19500117-8127"
+      ]
+    },
+    "answer": "The tax_id column stores"
+  },
+  {
+    "instruction": "Explain the function of the tax_id column in customer-related data.",
+    "input": {
+      "column_name": "tax_id",
+      "sample_values": [
+        "AU-177848719",
+        "VW6573070",
+        "B1370B15",
+        "QR-998458414",
+        "US-339117967",
+        "9302E231",
+        "GK3530629",
+        "PK2214040",
+        "778426E0",
+        "36D77090",
+        "PC6098288",
+        "959727709",
+        "LB-661559-W"
+      ]
+    },
+    "answer": "The tax_id column stores"
+  },
+  {
+    "instruction": "Explain the function of the tax_id column in customer-related data.",
+    "input": {
+      "column_name": "tax_id",
+      "sample_values": [
+        "KI-858713-T",
+        "EFA664D8",
+        "19990809-1058",
+        "AU-545175197",
+        "QR-326857453",
+        "732-20-5463",
+        "LU7692153",
+        "309-54-8566",
+        "374-20-3698",
+        "19610719-1230",
+        "BB434257",
+        "UK-888589949",
+        "505-44-4408"
+      ]
+    },
+    "answer": "The tax_id column stores"
+  },
+  {
+    "instruction": "Explain the function of the age column in customer-related data.",
+    "input": {
+      "column_name": "age",
+      "sample_values": [
+        "60.0",
+        "22.0",
+        "53.0",
+        "87.0",
+        "20.0",
+        "57.0",
+        "79.0",
+        "62.0",
+        "11.0",
+        "59.0",
+        "74.0",
+        "35.0",
+        "74.0"
+      ]
+    },
+    "answer": "The age column stores"
+  },
+  {
+    "instruction": "Explain the function of the age column in customer-related data.",
+    "input": {
+      "column_name": "age",
+      "sample_values": [
+        "78.0",
+        "83.0",
+        "37.0",
+        "85.0",
+        "78.0",
+        "27.0",
+        "75.0",
+        "84.0",
+        "44.0",
+        "83.0",
+        "51.0",
+        "12.0",
+        "67.0"
+      ]
+    },
+    "answer": "The age column stores"
+  },
+  {
+    "instruction": "Explain the function of the age column in customer-related data.",
+    "input": {
+      "column_name": "age",
+      "sample_values": [
+        "20.0",
+        "56.0",
+        "10.0",
+        "16.0",
+        "55.0",
+        "59.0",
+        "30.0",
+        "47.0",
+        "33.0",
+        "5.0",
+        "72.0",
+        "13.0",
+        "82.0"
+      ]
+    },
+    "answer": "The age column stores"
+  },
+  {
+    "instruction": "Explain the function of the gender column in customer-related data.",
+    "input": {
+      "column_name": "gender",
+      "sample_values": [
+        "Other",
+        "Male",
+        "Female",
+        "Other",
+        "Other",
+        "Other",
+        "Female",
+        "Female",
+        "Other",
+        "Male",
+        "Prefer Not to Say",
+        "Prefer Not to Say",
+        "Female"
+      ]
+    },
+    "answer": "The gender column tells what is the gender of the user"
+  },
+  {
+    "instruction": "Explain the function of the gender column in customer-related data.",
+    "input": {
+      "column_name": "gender",
+      "sample_values": [
+        "Prefer Not to Say",
+        "Female",
+        "Female",
+        "Male",
+        "Other",
+        "Male",
+        "Male",
+        "Female",
+        "Prefer Not to Say",
+        "Other",
+        "Female",
+        "Female",
+        "Other"
+      ]
+    },
+    "answer": "The gender column tells what is the gender of the user"
+  },
+  {
+    "instruction": "Explain the function of the gender column in customer-related data.",
+    "input": {
+      "column_name": "gender",
+      "sample_values": [
+        "Prefer Not to Say",
+        "Other",
+        "Female",
+        "Prefer Not to Say",
+        "Prefer Not to Say",
+        "Prefer Not to Say",
+        "Female",
+        "Male",
+        "Other",
+        "Other",
+        "Other",
+        "Male",
+        "Other"
+      ]
+    },
+    "answer": "The gender column tells what is the gender of the user"
+  },
+  {
+    "instruction": "Explain the function of the ethnicity column in customer-related data.",
+    "input": {
+      "column_name": "ethnicity",
+      "sample_values": [
+        "Pacific Islander",
+        "Middle Eastern",
+        "Pacific Islander",
+        "Middle Eastern",
+        "Caucasian",
+        "Indigenous",
+        "African",
+        "Mixed",
+        "Asian",
+        "African",
+        "African",
+        "African",
+        "Middle Eastern"
+      ]
+    },
+    "answer": "The ethnicity column tells us what is the etinicity of the user"
+  },
+  {
+    "instruction": "Explain the function of the ethnicity column in customer-related data.",
+    "input": {
+      "column_name": "ethnicity",
+      "sample_values": [
+        "Mixed",
+        "Mixed",
+        "Middle Eastern",
+        "African",
+        "Asian",
+        "Caucasian",
+        "African",
+        "Indigenous",
+        "Mixed",
+        "Pacific Islander",
+        "Indigenous",
+        "African",
+        "Indigenous"
+      ]
+    },
+    "answer": "The ethnicity column tells us what is the etinicity of the user"
+  },
+  {
+    "instruction": "Explain the function of the ethnicity column in customer-related data.",
+    "input": {
+      "column_name": "ethnicity",
+      "sample_values": [
+        "African",
+        "African",
+        "Indigenous",
+        "Hispanic/Latino",
+        "Prefer not to say",
+        "African",
+        "Indigenous",
+        "Mixed",
+        "Caucasian",
+        "Indigenous",
+        "Middle Eastern",
+        "African",
+        "Hispanic/Latino"
+      ]
+    },
+    "answer": "The ethnicity column tells us what is the etinicity of the user"
+  },
+  {
+    "instruction": "Explain the function of the nationality column in customer-related data.",
+    "input": {
+      "column_name": "nationality",
+      "sample_values": [
+        "Japan",
+        "Japan",
+        "United Kingdom",
+        "France",
+        "China",
+        "Brazil",
+        "China",
+        "Canada",
+        "Australia",
+        "China",
+        "India",
+        "Australia",
+        "United Kingdom"
+      ]
+    },
+    "answer": "The nationality column stores the nationality of the user"
+  },
+  {
+    "instruction": "Explain the function of the nationality column in customer-related data.",
+    "input": {
+      "column_name": "nationality",
+      "sample_values": [
+        "China",
+        "China",
+        "Japan",
+        "China",
+        "France",
+        "Japan",
+        "Australia",
+        "Canada",
+        "Canada",
+        "Canada",
+        "France",
+        "Brazil",
+        "India"
+      ]
+    },
+    "answer": "The nationality column stores the nationality of the user"
+  },
+  {
+    "instruction": "Explain the function of the nationality column in customer-related data.",
+    "input": {
+      "column_name": "nationality",
+      "sample_values": [
+        "Brazil",
+        "Singapore",
+        "Japan",
+        "Australia",
+        "Singapore",
+        "United States",
+        "France",
+        "Singapore",
+        "Germany",
+        "United Kingdom",
+        "United States",
+        "Germany",
+        "India"
+      ]
+    },
+    "answer": "The nationality column stores the nationality of the user"
+  },
+  {
+    "instruction": "Explain the function of the citizenship1 column in customer-related data.",
+    "input": {
+      "column_name": "citizenship1",
+      "sample_values": [
+        "Japan",
+        "India",
+        "Singapore",
+        "Singapore",
+        "Japan",
+        "Singapore",
+        "France",
+        "Singapore",
+        "France",
+        "Brazil",
+        "China",
+        "France",
+        "India"
+      ]
+    },
+    "answer": "The citizenship2 column stores what citizenship does the user have"
+  },
+  {
+    "instruction": "Explain the function of the citizenship1 column in customer-related data.",
+    "input": {
+      "column_name": "citizenship1",
+      "sample_values": [
+        "Canada",
+        "China",
+        "Singapore",
+        "France",
+        "France",
+        "China",
+        "United Kingdom",
+        "United States",
+        "France",
+        "United Kingdom",
+        "India",
+        "United States",
+        "Australia"
+      ]
+    },
+    "answer": "The citizenship2 column stores what citizenship does the user have
+  },
+  {
+    "instruction": "Explain the function of the citizenship1 column in customer-related data.",
+    "input": {
+      "column_name": "citizenship1",
+      "sample_values": [
+        "France",
+        "China",
+        "France",
+        "Brazil",
+        "United States",
+        "Singapore",
+        "Brazil",
+        "United Kingdom",
+        "France",
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "Australia"
+      ]
+    },
+    "answer": "The citizenship2 column stores what citizenship does the user have"
+  },
+  {
+    "instruction": "Explain the function of the citizenship2 column in customer-related data.",
+    "input": {
+      "column_name": "citizenship2",
+      "sample_values": [
+        "Singapore",
+        "Australia",
+        "India",
+        "India",
+        "India",
+        "United Kingdom",
+        "Canada",
+        "Australia",
+        "India",
+        "Brazil",
+        "Singapore",
+        "Brazil",
+        "Japan"
+      ]
+    },
+    "answer": "The citizenship2 column stores what citizenship does the user have"
+  },
+  {
+    "instruction": "Explain the function of the citizenship2 column in customer-related data.",
+    "input": {
+      "column_name": "citizenship2",
+      "sample_values": [
+        "China",
+        "China",
+        "United States",
+        "United States",
+        "United Kingdom",
+        "Germany",
+        "United Kingdom",
+        "Japan",
+        "France",
+        "France",
+        "India",
+        "Brazil",
+        "China"
+      ]
+    },
+    "answer": "The citizenship2 column stores what citizenship does the user have"
+  },
+  {
+    "instruction": "Explain the function of the citizenship2 column in customer-related data.",
+    "input": {
+      "column_name": "citizenship2",
+      "sample_values": [
+        "Japan",
+        "India",
+        "Australia",
+        "Japan",
+        "Australia",
+        "Brazil",
+        "France",
+        "Singapore",
+        "Germany",
+        "Australia",
+        "Canada",
+        "India",
+        "United States"
+      ]
+    },
+    "answer": "The citizenship2 column stores what citizenship does the user have"
+  },
+  {
+    "instruction": "Explain the function of the native_language column in customer-related data.",
+    "input": {
+      "column_name": "native_language",
+      "sample_values": [
+        "Chinese",
+        "English",
+        "Spanish",
+        "Spanish",
+        "English",
+        "German",
+        "Russian",
+        "Chinese",
+        "German",
+        "Russian",
+        "French",
+        "Portuguese",
+        "Arabic"
+      ]
+    },
+    "answer": "The native_language column tells what is the users native language"
+  },
+  {
+    "instruction": "Explain the function of the native_language column in customer-related data.",
+    "input": {
+      "column_name": "native_language",
+      "sample_values": [
+        "English",
+        "Arabic",
+        "Portuguese",
+        "German",
+        "Russian",
+        "English",
+        "Portuguese",
+        "Arabic",
+        "Russian",
+        "English",
+        "French",
+        "Hindi",
+        "English"
+      ]
+    },
+    "answer": "The native_language column tells what is the users native language"
+  },
+  {
+    "instruction": "Explain the function of the native_language column in customer-related data.",
+    "input": {
+      "column_name": "native_language",
+      "sample_values": [
+        "German",
+        "Russian",
+        "English",
+        "Chinese",
+        "Arabic",
+        "Chinese",
+        "German",
+        "German",
+        "Portuguese",
+        "Japanese",
+        "German",
+        "Japanese",
+        "Portuguese"
+      ]
+    },
+    "answer": "The native_language column tells what is the users native language"
+  },
+  {
+    "instruction": "Explain the function of the religion column in customer-related data.",
+    "input": {
+      "column_name": "religion",
+      "sample_values": [
+        "Buddhism",
+        "Sikhism",
+        "Judaism",
+        "Hinduism",
+        "None/Atheist",
+        "Christianity",
+        "Buddhism",
+        "None/Atheist",
+        "Judaism",
+        "Prefer not to say",
+        "Sikhism",
+        "Buddhism",
+        "Sikhism"
+      ]
+    },
+    "answer": "The religion column stores which religion does the user belongs to"
+  },
+  {
+    "instruction": "Explain the function of the religion column in customer-related data.",
+    "input": {
+      "column_name": "religion",
+      "sample_values": [
+        "Sikhism",
+        "Prefer not to say",
+        "Christianity",
+        "None/Atheist",
+        "Judaism",
+        "Hinduism",
+        "Buddhism",
+        "Hinduism",
+        "Prefer not to say",
+        "Judaism",
+        "Prefer not to say",
+        "Sikhism",
+        "Sikhism"
+      ]
+    },
+    "answer": "The religion column stores which religion does the user belongs to"
+  },
+  {
+    "instruction": "Explain the function of the religion column in customer-related data.",
+    "input": {
+      "column_name": "religion",
+      "sample_values": [
+        "Buddhism",
+        "None/Atheist",
+        "Judaism",
+        "Judaism",
+        "Sikhism",
+        "None/Atheist",
+        "Buddhism",
+        "Prefer not to say",
+        "Christianity",
+        "Islam",
+        "Hinduism",
+        "Hinduism",
+        "Buddhism"
+      ]
+    },
+    "answer": "The religion column stores which religion does the user belongs to"
+  },
+  {
+    "instruction": "Explain the function of the marital_status column in customer-related data.",
+    "input": {
+      "column_name": "marital_status",
+      "sample_values": [
+        "Married",
+        "Married",
+        "Single",
+        "Married",
+        "Married",
+        "Married",
+        "Divorced",
+        "Divorced",
+        "Divorced",
+        "Divorced",
+        "Married",
+        "Married",
+        "Married"
+      ]
+    },
+    "answer": "The marital_status column stores the marital staus of the user which tells us wheather the user is married or not"
+  },
+  {
+    "instruction": "Explain the function of the marital_status column in customer-related data.",
+    "input": {
+      "column_name": "marital_status",
+      "sample_values": [
+        "Divorced",
+        "Divorced",
+        "Married",
+        "Widowed",
+        "Single",
+        "Widowed",
+        "Single",
+        "Widowed",
+        "Single",
+        "Widowed",
+        "Divorced",
+        "Widowed",
+        "Married"
+      ]
+    },
+    "answer": "The marital_status column stores the marital staus of the user which tells us wheather the user is married or not"
+  },
+  {
+    "instruction": "Explain the function of the marital_status column in customer-related data.",
+    "input": {
+      "column_name": "marital_status",
+      "sample_values": [
+        "Single",
+        "Divorced",
+        "Divorced",
+        "Widowed",
+        "Married",
+        "Single",
+        "Divorced",
+        "Divorced",
+        "Divorced",
+        "Widowed",
+        "Widowed",
+        "Single",
+        "Widowed"
+      ]
+    },
+    "answer": "The marital_status column stores the marital staus of the user which tells us wheather the user is married or not"
+  },
+  {
+    "instruction": "Explain the function of the dependents_count column in customer-related data.",
+    "input": {
+      "column_name": "dependents_count",
+      "sample_values": [
+        "0.0",
+        "5.0",
+        "3.0",
+        "3.0",
+        "1.0",
+        "2.0",
+        "4.0",
+        "4.0",
+        "2.0",
+        "5.0",
+        "1.0",
+        "1.0",
+        "5.0"
+      ]
+    },
+    "answer": "The dependents_count column stores the dependents on the user in their family"
+  },
+  {
+    "instruction": "Explain the function of the dependents_count column in customer-related data.",
+    "input": {
+      "column_name": "dependents_count",
+      "sample_values": [
+        "4.0",
+        "2.0",
+        "1.0",
+        "1.0",
+        "1.0",
+        "1.0",
+        "3.0",
+        "5.0",
+        "3.0",
+        "5.0",
+        "5.0",
+        "5.0",
+        "0.0"
+      ]
+    },
+    "answer": "The dependents_count column stores the dependents on the user in their family"
+  },
+  {
+    "instruction": "Explain the function of the dependents_count column in customer-related data.",
+    "input": {
+      "column_name": "dependents_count",
+      "sample_values": [
+        "2.0",
+        "0.0",
+        "5.0",
+        "2.0",
+        "4.0",
+        "4.0",
+        "4.0",
+        "5.0",
+        "2.0",
+        "4.0",
+        "2.0",
+        "0.0",
+        "0.0"
+      ]
+    },
+    "answer": "The dependents_count column stores the dependents on the user in their family"
+  },
+  {
+    "instruction": "Explain the function of the household_income column in customer-related data.",
+    "input": {
+      "column_name": "household_income",
+      "sample_values": [
+        "170276.27",
+        "169188.96",
+        "120272.87",
+        "50910.46",
+        "99379.75",
+        "193095.51",
+        "117506.39",
+        "44606.09",
+        "143914.37",
+        "35688.86",
+        "107460.02",
+        "181818.59",
+        "149084.72"
+      ]
+    },
+    "answer": "The household_income column stores the household income which is a summ of income of the whole family memebers"
+  },
+  {
+    "instruction": "Explain the function of the household_income column in customer-related data.",
+    "input": {
+      "column_name": "household_income",
+      "sample_values": [
+        "93676.89",
+        "169320.24",
+        "186697.12",
+        "71556.15",
+        "164684.54",
+        "142145.36",
+        "85384.01",
+        "49612.22",
+        "108883.83",
+        "91939.82",
+        "132404.43",
+        "34955.92",
+        "91358.91"
+      ]
+    },
+    "answer": "The household_income column stores the household income which is a summ of income of the whole family memebers"
+  },
+  {
+    "instruction": "Explain the function of the household_income column in customer-related data.",
+    "input": {
+      "column_name": "household_income",
+      "sample_values": [
+        "174843.33",
+        "191922.23",
+        "64844.95",
+        "190523.96",
+        "127842.67",
+        "32445.96",
+        "127847.81",
+        "101545.79",
+        "136498.42",
+        "138629.25",
+        "49117.88",
+        "184498.9",
+        "77713.37"
+      ]
+    },
+    "answer": "The household_income column stores the household income which is a summ of income of the whole family memebers"
+  },
+  {
+    "instruction": "Explain the function of the education_level column in customer-related data.",
+    "input": {
+      "column_name": "education_level",
+      "sample_values": [
+        "Bachelor's Degree",
+        "Master's Degree",
+        "Doctorate",
+        "Associate Degree",
+        "Doctorate",
+        "Doctorate",
+        "Master's Degree",
+        "Bachelor's Degree",
+        "Doctorate",
+        "High School",
+        "Master's Degree",
+        "No Formal Education",
+        "No Formal Education"
+      ]
+    },
+    "answer": "The education_level column stores the education level of the user"
+  },
+  {
+    "instruction": "Explain the function of the education_level column in customer-related data.",
+    "input": {
+      "column_name": "education_level",
+      "sample_values": [
+        "Master's Degree",
+        "Master's Degree",
+        "High School",
+        "Master's Degree",
+        "Bachelor's Degree",
+        "Master's Degree",
+        "Master's Degree",
+        "Associate Degree",
+        "Bachelor's Degree",
+        "High School",
+        "Doctorate",
+        "High School",
+        "Bachelor's Degree"
+      ]
+    },
+    "answer": "The education_level column stores the education level of the user"
+  },
+  {
+    "instruction": "Explain the function of the education_level column in customer-related data.",
+    "input": {
+      "column_name": "education_level",
+      "sample_values": [
+        "No Formal Education",
+        "Doctorate",
+        "No Formal Education",
+        "Bachelor's Degree",
+        "High School",
+        "Doctorate",
+        "High School",
+        "Master's Degree",
+        "Bachelor's Degree",
+        "No Formal Education",
+        "High School",
+        "Associate Degree",
+        "Doctorate"
+      ]
+    },
+    "answer": "The education_level column stores the education level of the user"
+  },
+  {
+    "instruction": "Explain the function of the employment_status column in customer-related data.",
+    "input": {
+      "column_name": "employment_status",
+      "sample_values": [
+        "Student",
+        "Unemployed",
+        "Student",
+        "Self-employed",
+        "Unemployed",
+        "Employed",
+        "Student",
+        "Retired",
+        "Self-employed",
+        "Retired",
+        "Unemployed",
+        "Employed",
+        "Self-employed"
+      ]
+    },
+    "answer": "The employment_status column tels wheather the user is working or not"
+  },
+  {
+    "instruction": "Explain the function of the employment_status column in customer-related data.",
+    "input": {
+      "column_name": "employment_status",
+      "sample_values": [
+        "Employed",
+        "Employed",
+        "Student",
+        "Retired",
+        "Retired",
+        "Retired",
+        "Unemployed",
+        "Retired",
+        "Retired",
+        "Unemployed",
+        "Student",
+        "Self-employed",
+        "Unemployed"
+      ]
+    },
+    "answer": "The employment_status column tels wheather the user is working or not"
+  },
+  {
+    "instruction": "Explain the function of the employment_status column in customer-related data.",
+    "input": {
+      "column_name": "employment_status",
+      "sample_values": [
+        "Retired",
+        "Self-employed",
+        "Employed",
+        "Self-employed",
+        "Retired",
+        "Student",
+        "Retired",
+        "Retired",
+        "Unemployed",
+        "Self-employed",
+        "Student",
+        "Self-employed",
+        "Unemployed"
+      ]
+    },
+    "answer": "The employment_status column tels wheather the user is working or not"
+  },
+  {
+    "instruction": "Explain the function of the occupation column in customer-related data.",
+    "input": {
+      "column_name": "occupation",
+      "sample_values": [
+        "Restaurant manager",
+        "Scientist, physiological",
+        "Copy",
+        "Engineer, maintenance (IT)",
+        "Housing manager/officer",
+        "Accountant, chartered management",
+        "Lecturer, further education",
+        "Engineer, manufacturing",
+        "Chief Strategy Officer",
+        "Aeronautical engineer",
+        "Public relations account executive",
+        "Chartered legal executive (England and Wales)",
+        "Production assistant, television"
+      ]
+    },
+    "answer": "The occupation column stores the occupation of the user"
+  },
+  {
+    "instruction": "Explain the function of the occupation column in customer-related data.",
+    "input": {
+      "column_name": "occupation",
+      "sample_values": [
+        "Aid worker",
+        "Games developer",
+        "Probation officer",
+        "Risk manager",
+        "Chief of Staff",
+        "General practice doctor",
+        "Museum/gallery curator",
+        "Scientist, research (maths)",
+        "Energy engineer",
+        "Editorial assistant",
+        "Media buyer",
+        "Conference centre manager",
+        "Archivist"
+      ]
+    },
+    "answer": "The occupation column stores the occupation of the user"
+  },
+  {
+    "instruction": "Explain the function of the occupation column in customer-related data.",
+    "input": {
+      "column_name": "occupation",
+      "sample_values": [
+        "Surveyor, building",
+        "Fitness centre manager",
+        "Merchandiser, retail",
+        "Microbiologist",
+        "Special effects artist",
+        "Clinical embryologist",
+        "Soil scientist",
+        "Software engineer",
+        "Higher education lecturer",
+        "Trading standards officer",
+        "Psychologist, clinical",
+        "Financial controller",
+        "Nutritional therapist"
+      ]
+    },
+    "answer": "The occupation column stores the occupation of the user"
+  },
+  {
+    "instruction": "Explain the function of the industry column in customer-related data.",
+    "input": {
+      "column_name": "industry",
+      "sample_values": [
+        "Hospitality",
+        "Entertainment",
+        "Manufacturing",
+        "Education",
+        "Finance",
+        "Finance",
+        "Agriculture",
+        "Agriculture",
+        "Healthcare",
+        "Finance",
+        "Education",
+        "Finance",
+        "Finance"
+      ]
+    },
+    "answer": "The industry column tells in what what industry the user works in"
+  },
+  {
+    "instruction": "Explain the function of the industry column in customer-related data.",
+    "input": {
+      "column_name": "industry",
+      "sample_values": [
+        "Retail",
+        "Technology",
+        "Agriculture",
+        "Construction",
+        "Agriculture",
+        "Healthcare",
+        "Agriculture",
+        "Construction",
+        "Entertainment",
+        "Technology",
+        "Agriculture",
+        "Education",
+        "Education"
+      ]
+    },
+    "answer": "The industry column tells in what what industry the user works in"
+  },
+  {
+    "instruction": "Explain the function of the industry column in customer-related data.",
+    "input": {
+      "column_name": "industry",
+      "sample_values": [
+        "Finance",
+        "Finance",
+        "Retail",
+        "Retail",
+        "Education",
+        "Manufacturing",
+        "Finance",
+        "Healthcare",
+        "Education",
+        "Manufacturing",
+        "Technology",
+        "Retail",
+        "Manufacturing"
+      ]
+    },
+    "answer": "The industry column tells in what what industry the user works in"
+  },
+  {
+    "instruction": "Explain the function of the company_name column in customer-related data.",
+    "input": {
+      "column_name": "company_name",
+      "sample_values": [
+        "Miller-Lewis",
+        "Lewis Ltd",
+        "Adams-Cole",
+        "Wong-Tanner",
+        "Hernandez, Thompson and Mcgee",
+        "Jones-Stanley",
+        "Marshall, Buckley and Jones",
+        "Walton Group",
+        "Burnett Group",
+        "Cruz, Perez and Hernandez",
+        "Morrison, Anderson and Choi",
+        "Miller Ltd",
+        "Roach, Swanson and Ryan"
+      ]
+    },
+    "answer": "The company_name column stores the company name the user is working"
+  },
+  {
+    "instruction": "Explain the function of the company_name column in customer-related data.",
+    "input": {
+      "column_name": "company_name",
+      "sample_values": [
+        "Dickerson Inc",
+        "Henry, Anderson and Mercer",
+        "Calderon Group",
+        "Silva Ltd",
+        "Parker LLC",
+        "Hudson, Maddox and Stone",
+        "Mccullough LLC",
+        "Lane-Rose",
+        "Charles-Walker",
+        "Torres-James",
+        "Williams, Weaver and Reese",
+        "Hoover PLC",
+        "Elliott LLC"
+      ]
+    },
+    "answer": "The company_name column stores the company name the user is working"
+  },
+  {
+    "instruction": "Explain the function of the company_name column in customer-related data.",
+    "input": {
+      "column_name": "company_name",
+      "sample_values": [
+        "Gilmore-Flowers",
+        "Davis-Wilson",
+        "Dillon, Murphy and Parker",
+        "Graham-Wallace",
+        "Lyons-Williams",
+        "Sloan Ltd",
+        "Jefferson PLC",
+        "Williams, Thomas and Lin",
+        "Warner-Shaw",
+        "Waters and Sons",
+        "Roberts-Parker",
+        "Duran-Burnett",
+        "Bishop-Lamb"
+      ]
+    },
+    "answer": "The company_name column stores the company name the user is working"
+  },
+  {
+    "instruction": "Explain the function of the years_with_employer column in customer-related data.",
+    "input": {
+      "column_name": "years_with_employer",
+      "sample_values": [
+        "20.0",
+        "7.0",
+        "10.0",
+        "6.0",
+        "10.0",
+        "5.0",
+        "1.0",
+        "13.0",
+        "5.0",
+        "10.0",
+        "6.0",
+        "20.0",
+        "5.0"
+      ]
+    },
+    "answer": "The years_with_employer column stores years of employment with the comapny the user is working"
+  },
+  {
+    "instruction": "Explain the function of the years_with_employer column in customer-related data.",
+    "input": {
+      "column_name": "years_with_employer",
+      "sample_values": [
+        "12.0",
+        "15.0",
+        "1.0",
+        "40.0",
+        "5.0",
+        "18.0",
+        "13.0",
+        "17.0",
+        "2.0",
+        "9.0",
+        "16.0",
+        "5.0",
+        "11.0"
+      ]
+    },
+    "answer": "The years_with_employer column stores years of employment with the comapny the user is working"
+  },
+  {
+    "instruction": "Explain the function of the years_with_employer column in customer-related data.",
+    "input": {
+      "column_name": "years_with_employer",
+      "sample_values": [
+        "7.0",
+        "18.0",
+        "11.0",
+        "3.0",
+        "14.0",
+        "4.0",
+        "7.0",
+        "10.0",
+        "9.0",
+        "16.0",
+        "7.0",
+        "16.0",
+        "15.0"
+      ]
+    },
+    "answer": "The years_with_employer column stores years of employment with the comapny the user is working"
+  },
+  {
+    "instruction": "Explain the function of the job_role column in customer-related data.",
+    "input": {
+      "column_name": "job_role",
+      "sample_values": [
+        "Restaurant manager",
+        "Proofreader",
+        "Editorial assistant",
+        "Radiographer, therapeutic",
+        "Regulatory affairs officer",
+        "Lexicographer",
+        "Scientist, research (medical)",
+        "Social worker",
+        "Research officer, trade union",
+        "Technical brewer",
+        "Quantity surveyor",
+        "Operations geologist",
+        "Financial risk analyst"
+      ]
+    },
+    "answer": "The job_role column tells us what job does the user do"
+  },
+  {
+    "instruction": "Explain the function of the job_role column in customer-related data.",
+    "input": {
+      "column_name": "job_role",
+      "sample_values": [
+        "Magazine features editor",
+        "Charity fundraiser",
+        "Electronics engineer",
+        "Armed forces logistics/support/administrative officer",
+        "Materials engineer",
+        "Medical physicist",
+        "Contracting civil engineer",
+        "Psychologist, counselling",
+        "Freight forwarder",
+        "Buyer, retail",
+        "Contracting civil engineer",
+        "Community pharmacist",
+        "Architectural technologist"
+      ]
+    },
+    "answer": "The job_role column tells us what job does the user do"
+  },
+  {
+    "instruction": "Explain the function of the job_role column in customer-related data.",
+    "input": {
+      "column_name": "job_role",
+      "sample_values": [
+        "Building surveyor",
+        "Lighting technician, broadcasting/film/video",
+        "Geologist, wellsite",
+        "Financial risk analyst",
+        "Surveyor, hydrographic",
+        "Restaurant manager, fast food",
+        "Advertising account planner",
+        "Ambulance person",
+        "Editorial assistant",
+        "Scientist, research (maths)",
+        "Designer, ceramics/pottery",
+        "Medical laboratory scientific officer",
+        "Clinical cytogeneticist"
+      ]
+    },
+    "answer": "The job_role column tells us what job does the user do"
+  },
+  {
+    "instruction": "Explain the function of the annual_income column in customer-related data.",
+    "input": {
+      "column_name": "annual_income",
+      "sample_values": [
+         "0",
+        "49265.62",
+        "85687.21",
+         "0",
+        "116919.52",
+         "0",
+        "102800.97",
+        "32027.02",
+        "122047.79",
+         "0",
+         "0",
+         "0",
+         "0"
+      ]
+    },
+    "answer": "The annual_income column stores the annual income of the user"
+  },
+  {
+    "instruction": "Explain the function of the annual_income column in customer-related data.",
+    "input": {
+      "column_name": "annual_income",
+      "sample_values": [
+        "142304.87",
+        "0",
+        "79161.76",
+        "41976.18",
+        "44517.27",
+        "0",
+        "1017416.08",
+        "0",
+        "0",
+        "82391.57",
+        "115594.94",
+        "0",
+        "0"
+      ]
+    },
+    "answer": "The annual_income column stores the annual income of the user"
+  },
+  {
+    "instruction": "Explain the function of the annual_income column in customer-related data.",
+    "input": {
+      "column_name": "annual_income",
+      "sample_values": [
+        "96385.98",
+        "2784000.59",
+        "4236694.35",
+        "0",
+        "8430700.95",
+        "0",
+        "114074.87",
+        "0",
+        "0",
+        "65402.68",
+        "44962.25",
+        "0",
+        "0"
+      ]
+    },
+    "answer": "The annual_income column stores the annual income of the user"
+  },
+  {
+    "instruction": "Explain the function of the primary_bank_relation column in customer-related data.",
+    "input": {
+      "column_name": "primary_bank_relation",
+      "sample_values": [
+        "Secondary",
+        "Primary",
+        "Secondary",
+        "Primary",
+        "Secondary",
+        "Secondary",
+        "Secondary",
+        "Primary",
+        "Secondary",
+        "Secondary",
+        "Primary",
+        "Primary",
+        "Secondary"
+      ]
+    },
+    "answer": "The primary_bank_relation column stores wheater the bank account is primary or secondary"
+  },
+  {
+    "instruction": "Explain the function of the primary_bank_relation column in customer-related data.",
+    "input": {
+      "column_name": "primary_bank_relation",
+      "sample_values": [
+        "Primary",
+        "Primary",
+        "Primary",
+        "Secondary",
+        "Primary",
+        "Secondary",
+        "Primary",
+        "Secondary",
+        "Primary",
+        "Secondary",
+        "Primary",
+        "Secondary",
+        "Primary"
+      ]
+    },
+    "answer": "The primary_bank_relation column stores wheater the bank account is primary or secondary"
+  },
+  {
+    "instruction": "Explain the function of the primary_bank_relation column in customer-related data.",
+    "input": {
+      "column_name": "primary_bank_relation",
+      "sample_values": [
+        "Primary",
+        "Primary",
+        "Primary",
+        "Secondary",
+        "Secondary",
+        "Primary",
+        "Secondary",
+        "Secondary",
+        "Primary",
+        "Secondary",
+        "Primary",
+        "Primary",
+        "Secondary"
+      ]
+    },
+    "answer": "The primary_bank_relation column stores wheater the bank account is primary or secondary"
+  },
+  {
+    "instruction": "Explain the function of the credit_score column in customer-related data.",
+    "input": {
+      "column_name": "credit_score",
+      "sample_values": [
+        "582.65",
+        "745.43",
+        "431.23",
+        "806.8",
+        "441.68",
+        "532.11",
+        "543.38",
+        "423.93",
+        "730.16",
+        "463.38",
+        "592.89",
+        "779.6",
+        "568.46"
+      ]
+    },
+    "answer": "The credit_score column stores the credit score of the user"
+  },
+  {
+    "instruction": "Explain the function of the credit_score column in customer-related data.",
+    "input": {
+      "column_name": "credit_score",
+      "sample_values": [
+        "405.63",
+        "766.83",
+        "447.97",
+        "554.32",
+        "655.02",
+        "317.32",
+        "506.75",
+        "523.7",
+        "652.14",
+        "801.3",
+        "489.09",
+        "564.46",
+        "458.17"
+      ]
+    },
+    "answer": "The credit_score column stores the credit score of the user"
+  },
+  {
+    "instruction": "Explain the function of the credit_score column in customer-related data.",
+    "input": {
+      "column_name": "credit_score",
+      "sample_values": [
+        "523.73",
+        "766.02",
+        "662.0",
+        "481.08",
+        "563.44",
+        "507.5",
+        "379.45",
+        "841.28",
+        "594.6",
+        "848.21",
+        "355.55",
+        "305.68",
+        "736.47"
+      ]
+    },
+    "answer": "The credit_score column stores the credit score of the user"
+  },
+  {
+    "instruction": "Explain the function of the home_ownership column in customer-related data.",
+    "input": {
+      "column_name": "home_ownership",
+      "sample_values": [
+        "Living with Family",
+        "Owned",
+        "Rented",
+        "Mortgaged",
+        "Mortgaged",
+        "Living with Family",
+        "Owned",
+        "Owned",
+        "Rented",
+        "Mortgaged",
+        "Mortgaged",
+        "Rented",
+        "Owned"
+      ]
+    },
+    "answer": "The home_ownership column tells us wheather the user owns, rented or mortgaged"
+  },
+  {
+    "instruction": "Explain the function of the home_ownership column in customer-related data.",
+    "input": {
+      "column_name": "home_ownership",
+      "sample_values": [
+        "Owned",
+        "Owned",
+        "Living with Family",
+        "Owned",
+        "Living with Family",
+        "Owned",
+        "Owned",
+        "Living with Family",
+        "Owned",
+        "Living with Family",
+        "Rented",
+        "Living with Family",
+        "Rented"
+      ]
+    },
+    "answer": "The home_ownership column tells us wheather the user owns, rented or mortgaged"
+  },
+  {
+    "instruction": "Explain the function of the home_ownership column in customer-related data.",
+    "input": {
+      "column_name": "home_ownership",
+      "sample_values": [
+        "Mortgaged",
+        "Mortgaged",
+        "Living with Family",
+        "Owned",
+        "Mortgaged",
+        "Rented",
+        "Living with Family",
+        "Rented",
+        "Living with Family",
+        "Mortgaged",
+        "Owned",
+        "Owned",
+        "Living with Family"
+      ]
+    },
+    "answer": "The home_ownership column tells us wheather the user owns, rented or mortgaged"
+  },
+  {
+    "instruction": "Explain the function of the residence_duration column in customer-related data.",
+    "input": {
+      "column_name": "residence_duration",
+      "sample_values": [
+        "2",
+        "18",
+        "7",
+        "21",
+        "27",
+        "28",
+        "25",
+        "6",
+        "12",
+        "7",
+        "18",
+        "13",
+        "1"
+      ]
+    },
+    "answer": "The residence_duration column stores how many years the user is living in the residence"
+  },
+  {
+    "instruction": "Explain the function of the residence_duration column in customer-related data.",
+    "input": {
+      "column_name": "residence_duration",
+      "sample_values": [
+        "24",
+        "13",
+        "5",
+        "24",
+        "14",
+        "5",
+        "27",
+        "16",
+        "12",
+        "26",
+        "15",
+        "16",
+        "9"
+      ]
+    },
+    "answer": "The residence_duration column stores how many years the user is living in the residence"
+  },
+  {
+    "instruction": "Explain the function of the residence_duration column in customer-related data.",
+    "input": {
+      "column_name": "residence_duration",
+      "sample_values": [
+        "4",
+        "6",
+        "3",
+        "23",
+        "10",
+        "2",
+        "29",
+        "4",
+        "7",
+        "15",
+        "22",
+        "3",
+        "1"
+      ]
+    },
+    "answer": "The residence_duration column stores how many years the user is living in the residence"
+  },
+  {
+    "instruction": "Explain the function of the vehicle_ownership column in customer-related data.",
+    "input": {
+      "column_name": "vehicle_ownership",
+      "sample_values": [
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "FALSE"
+      ]
+    },
+    "answer": "The vehicle_ownership column tells us wheather the user owns a vehicle or not"
+  },
+  {
+    "instruction": "Explain the function of the vehicle_ownership column in customer-related data.",
+    "input": {
+      "column_name": "vehicle_ownership",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE"
+      ]
+    },
+    "answer": "The vehicle_ownership column tells us wheather the user owns a vehicle or not"
+  },
+  {
+    "instruction": "Explain the function of the vehicle_ownership column in customer-related data.",
+    "input": {
+      "column_name": "vehicle_ownership",
+      "sample_values": [
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "FALSE"
+      ]
+    },
+    "answer": "The vehicle_ownership column tells us wheather the user owns a vehicle or not"
+  },
+  {
+    "instruction": "Explain the function of the financial_dependents column in customer-related data.",
+    "input": {
+      "column_name": "financial_dependents",
+      "sample_values": [
+        "5.0",
+        "2.0",
+        "5.0",
+        "5.0",
+        "4.0",
+        "1.0",
+        "3.0",
+        "3.0",
+        "5.0",
+        "2.0",
+        "5.0",
+        "4.0",
+        "5.0"
+      ]
+    },
+    "answer": "The financial_dependents column stores how many people are financially dependent on the user"
+  },
+  {
+    "instruction": "Explain the function of the financial_dependents column in customer-related data.",
+    "input": {
+      "column_name": "financial_dependents",
+      "sample_values": [
+        "0.0",
+        "1.0",
+        "2.0",
+        "3.0",
+        "3.0",
+        "4.0",
+        "2.0",
+        "1.0",
+        "1.0",
+        "2.0",
+        "2.0",
+        "4.0",
+        "1.0"
+      ]
+    },
+    "answer": "The financial_dependents column stores how many people are financially dependent on the user"
+  },
+  {
+    "instruction": "Explain the function of the financial_dependents column in customer-related data.",
+    "input": {
+      "column_name": "financial_dependents",
+      "sample_values": [
+        "0.0",
+        "5.0",
+        "2.0",
+        "0.0",
+        "0.0",
+        "1.0",
+        "4.0",
+        "1.0",
+        "1.0",
+        "0.0",
+        "4.0",
+        "5.0",
+        "5.0"
+      ]
+    },
+    "answer": "The financial_dependents column stores how many people are financially dependent on the user"
+  },
+  {
+    "instruction": "Explain the function of the lifestyle_id column in customer-related data.",
+    "input": {
+      "column_name": "lifestyle_id",
+      "sample_values": [
+        "LIFE-93267d1e1b4d4c5f",
+        "LIFE-00af25b637424856",
+        "LIFE-7a3ab977a64e4ff3",
+        "LIFE-c9c20616713f497b",
+        "LIFE-b71625f4d5ca4e20",
+        "LIFE-cbb43290df8544ec",
+        "LIFE-b9f1fcaa1d0543cf",
+        "LIFE-86b7849190a94146",
+        "LIFE-32310007a17c4870",
+        "LIFE-14220e269c674836",
+        "LIFE-19aab6017de9436f",
+        "LIFE-69e7ad033d2d4450",
+        "LIFE-7c42eb4879fe4d0d"
+      ]
+    },
+    "answer": "The lifestyle_id column stores the unique identifier for the customer lifestyle related data and it acts like a primary key"
+  },
+  {
+    "instruction": "Explain the function of the lifestyle_id column in customer-related data.",
+    "input": {
+      "column_name": "lifestyle_id",
+      "sample_values": [
+        "LIFE-7a4f9ff297d940cc",
+        "LIFE-10717e97fae748b7",
+        "LIFE-f6b2897437bf4396",
+        "LIFE-277176cea7534bc2",
+        "LIFE-0298c6e474454581",
+        "LIFE-4454e802ab3a4046",
+        "LIFE-2b52a31f68de4cdf",
+        "LIFE-c27cf53692c94053",
+        "LIFE-78f274f1d57344cd",
+        "LIFE-ef54dd0156f54541",
+        "LIFE-ca250efbce2441ec",
+        "LIFE-33870c972d684ad7",
+        "LIFE-a0f920f03b0f4da3"
+      ]
+    },
+    "answer": "The lifestyle_id column stores the unique identifier for the customer lifestyle related data and it acts like a primary key"
+  },
+  {
+    "instruction": "Explain the function of the lifestyle_id column in customer-related data.",
+    "input": {
+      "column_name": "lifestyle_id",
+      "sample_values": [
+        "LIFE-2543536626ce4ce1",
+        "LIFE-9fc6f35d30944ed7",
+        "LIFE-a5c87e9306a54345",
+        "LIFE-39b8a5dc6efa445d",
+        "LIFE-9e9d525e77af4179",
+        "LIFE-a4465e91303040d8",
+        "LIFE-c32ac407b03d4d20",
+        "LIFE-97d935c524e24538",
+        "LIFE-e8915357a2b34fa7",
+        "LIFE-6ca2339b38864539",
+        "LIFE-93bf40f7d5324e96",
+        "LIFE-b328fc7c2e9d49ed",
+        "LIFE-79c3ac5993c44f7c"
+      ]
+    },
+    "answer": "The lifestyle_id column stores the unique identifier for the customer lifestyle related data and it acts like a primary key"
+  },
+  {
+    "instruction": "Explain the function of the smoker column in customer-related data.",
+    "input": {
+      "column_name": "smoker",
+      "sample_values": [
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE"
+      ]
+    },
+    "answer": "The smoker column tells wheather the user smokes or not"
+  },
+  {
+    "instruction": "Explain the function of the smoker column in customer-related data.",
+    "input": {
+      "column_name": "smoker",
+      "sample_values": [
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE"
+      ]
+    },
+    "answer": "The smoker column tells wheather the user smokes or not"
+  },
+  {
+    "instruction": "Explain the function of the smoker column in customer-related data.",
+    "input": {
+      "column_name": "smoker",
+      "sample_values": [
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE"
+      ]
+    },
+    "answer": "The smoker column tells wheather the user smokes or not"
+  },
+  {
+    "instruction": "Explain the function of the alcohol_consumption column in customer-related data.",
+    "input": {
+      "column_name": "alcohol_consumption",
+      "sample_values": [
+        "Never",
+        "Occasionally",
+        "Occasionally",
+        "Occasionally",
+        "Never",
+        "Regularly",
+        "Never",
+        "Never",
+        "Never",
+        "Regularly",
+        "Occasionally",
+        "Regularly",
+        "Regularly"
+      ]
+    },
+    "answer": "The alcohol_consumption column stores the alcohol consumption of the user with which we can see how frequent it is"
+  },
+  {
+    "instruction": "Explain the function of the alcohol_consumption column in customer-related data.",
+    "input": {
+      "column_name": "alcohol_consumption",
+      "sample_values": [
+        "Occasionally",
+        "Never",
+        "Never",
+        "Never",
+        "Never",
+        "Regularly",
+        "Never",
+        "Never",
+        "Never",
+        "Regularly",
+        "Occasionally",
+        "Occasionally",
+        "Never"
+      ]
+    },
+    "answer": "The alcohol_consumption column stores the alcohol consumption of the user with which we can see how frequent it is"
+  },
+  {
+    "instruction": "Explain the function of the alcohol_consumption column in customer-related data.",
+    "input": {
+      "column_name": "alcohol_consumption",
+      "sample_values": [
+        "Regularly",
+        "Regularly",
+        "Occasionally",
+        "Never",
+        "Occasionally",
+        "Occasionally",
+        "Occasionally",
+        "Occasionally",
+        "Regularly",
+        "Never",
+        "Occasionally",
+        "Occasionally",
+        "Occasionally"
+      ]
+    },
+    "answer": "The alcohol_consumption column stores the alcohol consumption of the user with which we can see how frequent it is"
+  },
+  {
+    "instruction": "Explain the function of the exercise_frequency column in customer-related data.",
+    "input": {
+      "column_name": "exercise_frequency",
+      "sample_values": [
+        "3-5 times/week",
+        "1-2 times/week",
+        "3-5 times/week",
+        "1-2 times/week",
+        "1-2 times/week",
+        "3-5 times/week",
+        "Daily",
+        "1-2 times/week",
+        "Daily",
+        "Daily",
+        "Daily",
+        "1-2 times/week",
+        "1-2 times/week"
+      ]
+    },
+    "answer": "The exercise_frequency column stores how frequently the user does exercise"
+  },
+  {
+    "instruction": "Explain the function of the exercise_frequency column in customer-related data.",
+    "input": {
+      "column_name": "exercise_frequency",
+      "sample_values": [
+        "3-5 times/week",
+        "1-2 times/week",
+        "1-2 times/week",
+        "3-5 times/week",
+        "1-2 times/week",
+        "3-5 times/week",
+        "1-2 times/week",
+        "Daily",
+        "Daily",
+        "1-2 times/week",
+        "1-2 times/week",
+        "Daily",
+        "Daily"
+      ]
+    },
+    "answer": "The exercise_frequency column stores how frequently the user does exercise"
+  },
+  {
+    "instruction": "Explain the function of the exercise_frequency column in customer-related data.",
+    "input": {
+      "column_name": "exercise_frequency",
+      "sample_values": [
+        "3-5 times/week",
+        "1-2 times/week",
+        "1-2 times/week",
+        "Daily",
+        "1-2 times/week",
+        "Daily",
+        "3-5 times/week",
+        "3-5 times/week",
+        "1-2 times/week",
+        "1-2 times/week",
+        "1-2 times/week",
+        "1-2 times/week",
+        "3-5 times/week"
+      ]
+    },
+    "answer": "The exercise_frequency column stores how frequently the user does exercise"
+  },
+  {
+    "instruction": "Explain the function of the dietary_preference column in customer-related data.",
+    "input": {
+      "column_name": "dietary_preference",
+      "sample_values": [
+        "Raw food",
+        "Paleo",
+        "No restrictions",
+        "No restrictions",
+        "Low-fat",
+        "Kosher",
+        "Vegan",
+        "Low-fat",
+        "Dairy-free",
+        "Raw food",
+        "Low-carb",
+        "Organic",
+        "Kosher"
+      ]
+    },
+    "answer": "The dietary_preference column stores the dietary preference of the user"
+  },
+  {
+    "instruction": "Explain the function of the dietary_preference column in customer-related data.",
+    "input": {
+      "column_name": "dietary_preference",
+      "sample_values": [
+        "No restrictions",
+        "Low-carb",
+        "Kosher",
+        "Vegan",
+        "Vegetarian",
+        "Dairy-free",
+        "No restrictions",
+        "No restrictions",
+        "Pescatarian",
+        "Low-carb",
+        "Gluten-free",
+        "Raw food",
+        "Raw food"
+      ]
+    },
+    "answer": "The dietary_preference column stores the dietary preference of the user"
+  },
+  {
+    "instruction": "Explain the function of the dietary_preference column in customer-related data.",
+    "input": {
+      "column_name": "dietary_preference",
+      "sample_values": [
+        "Paleo",
+        "Intermittent fasting",
+        "Keto",
+        "Intermittent fasting",
+        "Keto",
+        "Intermittent fasting",
+        "Intermittent fasting",
+        "Halal",
+        "Kosher",
+        "Dairy-free",
+        "No restrictions",
+        "No restrictions",
+        "Dairy-free"
+      ]
+    },
+    "answer": "The dietary_preference column stores the dietary preference of the user"
+  },
+  {
+    "instruction": "Explain the function of the travel_frequency column in customer-related data.",
+    "input": {
+      "column_name": "travel_frequency",
+      "sample_values": [
+        "Occasionally",
+        "Occasionally",
+        "Rarely",
+        "Occasionally",
+        "Occasionally",
+        "Rarely",
+        "Occasionally",
+        "Frequently",
+        "Occasionally",
+        "Occasionally",
+        "Occasionally",
+        "Frequently",
+        "Frequently"
+      ]
+    },
+    "answer": "The travel_frequency column stores how frequently the user travels"
+  },
+  {
+    "instruction": "Explain the function of the travel_frequency column in customer-related data.",
+    "input": {
+      "column_name": "travel_frequency",
+      "sample_values": [
+        "Occasionally",
+        "Occasionally",
+        "Rarely",
+        "Occasionally",
+        "Occasionally",
+        "Rarely",
+        "Rarely",
+        "Rarely",
+        "Frequently",
+        "Frequently",
+        "Rarely",
+        "Occasionally",
+        "Rarely"
+      ]
+    },
+    "answer": "The travel_frequency column stores how frequently the user travels"
+  },
+  {
+    "instruction": "Explain the function of the travel_frequency column in customer-related data.",
+    "input": {
+      "column_name": "travel_frequency",
+      "sample_values": [
+        "Occasionally",
+        "Frequently",
+        "Rarely",
+        "Rarely",
+        "Occasionally",
+        "Rarely",
+        "Rarely",
+        "Occasionally",
+        "Frequently",
+        "Occasionally",
+        "Rarely",
+        "Frequently",
+        "Frequently"
+      ]
+    },
+    "answer": "The travel_frequency column stores how frequently the user travels"
+  },
+  {
+    "instruction": "Explain the function of the luxury_spending column in customer-related data.",
+    "input": {
+      "column_name": "luxury_spending",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "TRUE"
+      ]
+    },
+    "answer": "The luxury_spending column tells us wheather the user does luxury spending or not"
+  },
+  {
+    "instruction": "Explain the function of the luxury_spending column in customer-related data.",
+    "input": {
+      "column_name": "luxury_spending",
+      "sample_values": [
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "FALSE"
+      ]
+    },
+    "answer": "The luxury_spending column tells us wheather the user does luxury spending or not"
+  },
+  {
+    "instruction": "Explain the function of the luxury_spending column in customer-related data.",
+    "input": {
+      "column_name": "luxury_spending",
+      "sample_values": [
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "FALSE"
+      ]
+    },
+    "answer": "The luxury_spending column tells us wheather the user does luxury spending or not"
+  },
+  {
+    "instruction": "Explain the function of the subscription_services column in customer-related data.",
+    "input": {
+      "column_name": "subscription_services",
+      "sample_values": [
+        "{}",
+        "{\"News subscription\": 15.69, \"Cloud storage\": 25.38}",
+        "{}",
+        "{\"Hulu\": 34.76, \"Wine club\": 13.27, \"News subscription\": 12.13, \"HBO Max\": 14.16}",
+        "{\"Gaming service\": 45.47, \"Magazine subscription\": 11.68, \"Meal kit delivery\": 13.9, \"Netflix\": 17.83, \"Peloton\": 131.75, \"Cloud storage\": 34.71, \"Gym membership\": 76.7, \"Spotify\": 27.49}",
+        "{\"Amazon Prime\": 13.94, \"Book club\": 38.77, \"Netflix\": 9.36, \"Cloud storage\": 16.3, \"Streaming fitness\": 48.01, \"Wine club\": 30.29}",
+        "{\"Cloud storage\": 34.75, \"Wine club\": 35.51, \"YouTube Premium\": 27.41, \"HBO Max\": 18.7, \"Magazine subscription\": 17.92}",
+        "{\"Cloud storage\": 39.8, \"Meal kit delivery\": 42.82, \"News subscription\": 11.16, \"Hulu\": 29.68, \"Streaming fitness\": 28.28, \"Spotify\": 37.97, \"Disney+\": 8.22, \"Book club\": 11.41}",
+        "{\"Cloud storage\": 23.27, \"Disney+\": 10.62, \"News subscription\": 20.81, \"Amazon Prime\": 18.14, \"Gaming service\": 20.56}",
+        "{\"YouTube Premium\": 5.33}",
+        "{\"HBO Max\": 12.22, \"Hulu\": 40.1, \"Gym membership\": 131.78, \"Disney+\": 9.06}",
+        "{\"Peloton\": 57.73, \"Disney+\": 9.87, \"Magazine subscription\": 8.95, \"Cloud storage\": 12.34, \"Wine club\": 32.56, \"YouTube Premium\": 34.86}",
+        "{\"News subscription\": 6.89, \"Hulu\": 35.06, \"Cloud storage\": 37.63, \"Apple Music\": 38.16, \"HBO Max\": 9.65, \"Netflix\": 10.55, \"Peloton\": 106.96}"
+      ]
+    },
+    "answer": "The subscription_services column stores what all the subscriptions the user is paying"
+  },
+  {
+    "instruction": "Explain the function of the subscription_services column in customer-related data.",
+    "input": {
+      "column_name": "subscription_services",
+      "sample_values": [
+        "{\"Disney+\": 18.77, \"Meal kit delivery\": 17.84, \"Streaming fitness\": 27.48, \"YouTube Premium\": 22.73, \"Peloton\": 112.02, \"Spotify\": 5.2, \"Gym membership\": 108.82, \"Hulu\": 20.07}",
+        "{\"Spotify\": 25.7, \"Disney+\": 14.94, \"Dating app premium\": 47.26, \"Amazon Prime\": 16.84, \"HBO Max\": 13.47, \"News subscription\": 18.07}",
+        "{\"Corporate subscriptions\": \"Varies\"}",
+        "{\"Apple Music\": 28.79, \"News subscription\": 8.07, \"Hulu\": 5.88, \"Gaming service\": 46.71, \"Gym membership\": 19.77, \"Dating app premium\": 36.88, \"Amazon Prime\": 14.29}",
+        "{\"YouTube Premium\": 8.14, \"Peloton\": 32.83}",
+        "{\"HBO Max\": 13.99, \"YouTube Premium\": 10.5, \"Magazine subscription\": 5.85, \"Spotify\": 26.75, \"Cloud storage\": 14.58}",
+        "{\"Disney+\": 16.49, \"Gym membership\": 79.92}",
+        "{\"Book club\": 47.88, \"Streaming fitness\": 5.95, \"YouTube Premium\": 6.23, \"Peloton\": 111.66}",
+        "{\"Streaming fitness\": 43.08, \"Gym membership\": 19.13, \"Dating app premium\": 48.24, \"Gaming service\": 41.98, \"Cloud storage\": 7.07, \"Hulu\": 42.27, \"Spotify\": 12.24}",
+        "{\"News subscription\": 21.24, \"HBO Max\": 10.13, \"Book club\": 22.98, \"Gaming service\": 26.13}",
+        "{\"YouTube Premium\": 32.67}",
+        "{\"Corporate subscriptions\": \"Varies\"}",
+        "{\"Corporate subscriptions\": \"Varies\"}"
+      ]
+    },
+    "answer": "The subscription_services column stores what all the subscriptions the user is paying"
+  },
+  {
+    "instruction": "Explain the function of the subscription_services column in customer-related data.",
+    "input": {
+      "column_name": "subscription_services",
+      "sample_values": [
+        "{}",
+        "{\"Corporate subscriptions\": \"Varies\"}",
+        "{\"Corporate subscriptions\": \"Varies\"}",
+        "{\"Book club\": 5.74, \"Meal kit delivery\": 31.23, \"Amazon Prime\": 19.96}",
+        "{\"Book club\": 16.42, \"Wine club\": 38.09, \"Peloton\": 149.85, \"Dating app premium\": 39.99, \"Disney+\": 15.81, \"Hulu\": 23.17, \"Magazine subscription\": 22.0}",
+        "{}",
+        "{\"Corporate subscriptions\": \"Varies\"}",
+        "{\"Cloud storage\": 35.98, \"HBO Max\": 18.09, \"Disney+\": 15.17, \"Wine club\": 23.58, \"Hulu\": 38.11}",
+        "{\"Streaming fitness\": 10.32}",
+        "{\"Gym membership\": 110.52, \"Book club\": 44.82, \"Amazon Prime\": 15.9, \"Cloud storage\": 49.92}",
+        "{\"Wine club\": 26.67, \"News subscription\": 18.86, \"Apple Music\": 17.39, \"YouTube Premium\": 12.11, \"Disney+\": 17.89, \"Hulu\": 49.23}",
+        "{\"Corporate subscriptions\": \"Varies\"}",
+        "{\"Corporate subscriptions\": \"Varies\"}"
+      ]
+    },
+    "answer": "The subscription_services column stores what all the subscriptions the user is paying"
+  },
+  {
+    "instruction": "Explain the function of the behavior_id column in customer-related data.",
+    "input": {
+      "column_name": "behavior_id",
+      "sample_values": [
+        "FIN-07a1be78adbb417a",
+        "FIN-4a9c326cd1794923",
+        "FIN-60d2c57182ae4ae7",
+        "FIN-95ce0e2df0034cb7",
+        "FIN-987ca60bdbce4adc",
+        "FIN-bd4314a564834b83",
+        "FIN-48f8dc0321334c60",
+        "FIN-326884a95d794187",
+        "FIN-9464aa1302074637",
+        "FIN-d94d89f17ae348a9",
+        "FIN-6d3062c8da1844d0",
+        "FIN-e4d00ed55f954d3f",
+        "FIN-b8cf008f1dc4488f"
+      ]
+    },
+    "answer": "The behavior_id column stores the unique identifier of behavioral data of the user"
+  },
+  {
+    "instruction": "Explain the function of the behavior_id column in customer-related data.",
+    "input": {
+      "column_name": "behavior_id",
+      "sample_values": [
+        "FIN-e36e7681feef41ff",
+        "FIN-916362039a644ba8",
+        "FIN-d8ab7de4edcc46d7",
+        "FIN-4594cff0a4a4460c",
+        "FIN-2995825698d44312",
+        "FIN-a06bf27377404b85",
+        "FIN-198cbc54a5724a8c",
+        "FIN-94fd59717fbf4821",
+        "FIN-34a58c53076746c7",
+        "FIN-e39568d7ed674e25",
+        "FIN-80d9ca8ed93f458b",
+        "FIN-f5ef41159e4049f5",
+        "FIN-fbbd154f197341e1"
+      ]
+    },
+    "answer": "The behavior_id column stores the unique identifier of behavioral data of the user"
+  },
+  {
+    "instruction": "Explain the function of the behavior_id column in customer-related data.",
+    "input": {
+      "column_name": "behavior_id",
+      "sample_values": [
+        "FIN-495d61dfb3c4418b",
+        "FIN-345f5626bbcc4c0f",
+        "FIN-fe559391234c4cc3",
+        "FIN-ae8efee0425b4fff",
+        "FIN-87e2c20ab70140a8",
+        "FIN-cf1ae537f8524de9",
+        "FIN-c261076826b546fa",
+        "FIN-fac2e653dbe14ba9",
+        "FIN-e208ea4df93e4c51",
+        "FIN-8352cc0ebeb44a81",
+        "FIN-77122adce68b4d43",
+        "FIN-1fcd8d6b0d554298",
+        "FIN-dfd396b45d6e41d6"
+      ]
+    },
+    "answer": "The behavior_id column stores the unique identifier of behavioral data of the user"
+  },
+  {
+    "instruction": "Explain the function of the savings_habit column in customer-related data.",
+    "input": {
+      "column_name": "savings_habit",
+      "sample_values": [
+        "Low",
+        "Moderate",
+        "Low",
+        "Moderate",
+        "High",
+        "High",
+        "Moderate",
+        "Low",
+        "Low",
+        "Low",
+        "Low",
+        "Moderate",
+        "Moderate"
+      ]
+    },
+    "answer": "The savings_habit column tells us wheather the user having saving habit if have it how good they do it"
+  },
+  {
+    "instruction": "Explain the function of the savings_habit column in customer-related data.",
+    "input": {
+      "column_name": "savings_habit",
+      "sample_values": [
+        "Moderate",
+        "High",
+        "Moderate",
+        "Low",
+        "High",
+        "Moderate",
+        "Moderate",
+        "Low",
+        "Moderate",
+        "High",
+        "Moderate",
+        "Low",
+        "High"
+      ]
+    },
+    "answer": "The savings_habit column tells us wheather the user having saving habit if have it how good they do it"
+  },
+  {
+    "instruction": "Explain the function of the savings_habit column in customer-related data.",
+    "input": {
+      "column_name": "savings_habit",
+      "sample_values": [
+        "High",
+        "High",
+        "High",
+        "Low",
+        "Moderate",
+        "Moderate",
+        "High",
+        "Low",
+        "Low",
+        "Low",
+        "Moderate",
+        "Low",
+        "Low"
+      ]
+    },
+    "answer": "The savings_habit column tells us wheather the user having saving habit if have it how good they do it"
+  },
+  {
+    "instruction": "Explain the function of the investment_type column in customer-related data.",
+    "input": {
+      "column_name": "investment_type",
+      "sample_values": [
+        "Crypto",
+        "Real Estate",
+        "Bonds",
+        "Crypto",
+        "Bonds",
+        "Mutual Funds",
+        "Stocks",
+        "Mutual Funds",
+        "Mutual Funds",
+        "Bonds",
+        "Real Estate",
+        "Real Estate",
+        "Mutual Funds"
+      ]
+    },
+    "answer": "The investment_type column stored in what all palces the user do their investments"
+  },
+  {
+    "instruction": "Explain the function of the investment_type column in customer-related data.",
+    "input": {
+      "column_name": "investment_type",
+      "sample_values": [
+        "Stocks",
+        "Real Estate",
+        "Bonds",
+        "Mutual Funds",
+        "Stocks",
+        "Stocks",
+        "Mutual Funds",
+        "Bonds",
+        "Stocks",
+        "Real Estate",
+        "Real Estate",
+        "Mutual Funds",
+        "Stocks"
+      ]
+    },
+    "answer": "The investment_type column stored in what all palces the user do their investments"
+  },
+  {
+    "instruction": "Explain the function of the investment_type column in customer-related data.",
+    "input": {
+      "column_name": "investment_type",
+      "sample_values": [
+        "Stocks",
+        "Bonds",
+        "Stocks",
+        "Crypto",
+        "Stocks",
+        "Stocks",
+        "Mutual Funds",
+        "Mutual Funds",
+        "Mutual Funds",
+        "Stocks",
+        "Stocks",
+        "Stocks",
+        "Stocks"
+      ]
+    },
+    "answer": "The investment_type column stored in what all palces the user do their investments"
+  },
+  {
+    "instruction": "Explain the function of the loan_repayment_behavior column in customer-related data.",
+    "input": {
+      "column_name": "loan_repayment_behavior",
+      "sample_values": [
+        "Excellent",
+        "Excellent",
+        "Fair",
+        "Good",
+        "Fair",
+        "Good",
+        "Excellent",
+        "Excellent",
+        "Excellent",
+        "Good",
+        "Poor",
+        "Fair",
+        "Excellent"
+      ]
+    },
+    "answer": "The loan_repayment_behavior column tells how good they user pays theie loan payments"
+  },
+  {
+    "instruction": "Explain the function of the loan_repayment_behavior column in customer-related data.",
+    "input": {
+      "column_name": "loan_repayment_behavior",
+      "sample_values": [
+        "Good",
+        "Good",
+        "Fair",
+        "Excellent",
+        "Poor",
+        "Good",
+        "Good",
+        "Fair",
+        "Excellent",
+        "Good",
+        "Good",
+        "Good",
+        "Excellent"
+      ]
+    },
+    "answer": "The loan_repayment_behavior column tells how good they user pays theie loan payments"
+  },
+  {
+    "instruction": "Explain the function of the loan_repayment_behavior column in customer-related data.",
+    "input": {
+      "column_name": "loan_repayment_behavior",
+      "sample_values": [
+        "Poor",
+        "Excellent",
+        "Fair",
+        "Fair",
+        "Excellent",
+        "Excellent",
+        "Excellent",
+        "Good",
+        "Excellent",
+        "Fair",
+        "Poor",
+        "Excellent",
+        "Good"
+      ]
+    },
+    "answer": "The loan_repayment_behavior column tells how good they user pays theie loan payments"
+  },
+  {
+    "instruction": "Explain the function of the spending_category column in customer-related data.",
+    "input": {
+      "column_name": "spending_category",
+      "sample_values": [
+        "{\"Operations\": 48, \"Marketing\": 19, \"Payroll\": 26, \"Equipment\": 10, \"Miscellaneous\": 7}",
+        "{\"Operations\": 41, \"Marketing\": 23, \"Payroll\": 31, \"Equipment\": 7, \"Miscellaneous\": 10}",
+        "{\"Operations\": 46, \"Marketing\": 16, \"Payroll\": 37, \"Equipment\": 18, \"Miscellaneous\": 4}",
+        "{\"Investments\": 49, \"Transportation\": 43, \"Debt Repayment\": 2, \"Travel\": 2, \"Housing\": 2, \"Taxes\": 1, \"Savings\": 1}",
+        "{\"Shopping\": 16, \"Food\": 26, \"Gifts/Donations\": 29, \"Personal Care\": 1, \"Entertainment\": 1, \"Taxes\": 8, \"Housing\": 19}",
+        "{\"Utilities\": 32, \"Gifts/Donations\": 41, \"Transportation\": 21, \"Education\": 3, \"Healthcare\": 1, \"Savings\": 1, \"Debt Repayment\": 1}",
+        "{\"Taxes\": 35, \"Shopping\": 25, \"Food\": 3, \"Miscellaneous\": 37}",
+        "{\"Investments\": 40, \"Healthcare\": 41, \"Housing\": 8, \"Miscellaneous\": 7, \"Travel\": 1, \"Taxes\": 1, \"Shopping\": 1, \"Debt Repayment\": 1}",
+        "{\"Operations\": 47, \"Marketing\": 28, \"Payroll\": 37, \"Equipment\": 14, \"Miscellaneous\": 6}",
+        "{\"Travel\": 26, \"Transportation\": 9, \"Housing\": 11, \"Gifts/Donations\": 54}",
+        "{\"Taxes\": 31, \"Education\": 22, \"Food\": 20, \"Personal Care\": 27}",
+        "{\"Investments\": 12, \"Education\": 22, \"Transportation\": 27, \"Insurance\": 39}",
+        "{\"Travel\": 15, \"Healthcare\": 12, \"Insurance\": 30, \"Food\": 1, \"Housing\": 42}"
+      ]
+    },
+    "answer": "The spending_category column stores the categories on where the user spends their money"
+  },
+  {
+    "instruction": "Explain the function of the spending_category column in customer-related data.",
+    "input": {
+      "column_name": "spending_category",
+      "sample_values": [
+        "{\"Transportation\": 36, \"Travel\": 49, \"Personal Care\": 3, \"Housing\": 1, \"Taxes\": 8, \"Gifts/Donations\": 1, \"Entertainment\": 2}",
+        "{\"Operations\": 56, \"Marketing\": 12, \"Payroll\": 40, \"Equipment\": 19, \"Miscellaneous\": 3}",
+        "{\"Food\": 43, \"Personal Care\": 18, \"Education\": 23, \"Transportation\": 4, \"Housing\": 5, \"Shopping\": 5, \"Utilities\": 1, \"Insurance\": 1}",
+        "{\"Debt Repayment\": 14, \"Entertainment\": 49, \"Gifts/Donations\": 34, \"Healthcare\": 3}",
+        "{\"Utilities\": 22, \"Entertainment\": 43, \"Housing\": 20, \"Gifts/Donations\": 12, \"Investments\": 1, \"Taxes\": 2}",
+        "{\"Personal Care\": 2, \"Gifts/Donations\": 1, \"Miscellaneous\": 49, \"Shopping\": 26, \"Travel\": 16, \"Debt Repayment\": 3, \"Taxes\": 2, \"Entertainment\": 1}",
+        "{\"Operations\": 40, \"Marketing\": 28, \"Payroll\": 34, \"Equipment\": 14, \"Miscellaneous\": 2}",
+        "{\"Shopping\": 38, \"Debt Repayment\": 8, \"Insurance\": 9, \"Savings\": 32, \"Gifts/Donations\": 8, \"Food\": 5}",
+        "{\"Operations\": 55, \"Marketing\": 28, \"Payroll\": 35, \"Equipment\": 10, \"Miscellaneous\": 8}",
+        "{\"Personal Care\": 47, \"Utilities\": 22, \"Shopping\": 24, \"Entertainment\": 5, \"Savings\": 2}",
+        "{\"Transportation\": 22, \"Shopping\": 21, \"Debt Repayment\": 7, \"Healthcare\": 50}",
+        "{\"Entertainment\": 49, \"Housing\": 38, \"Education\": 10, \"Insurance\": 2, \"Healthcare\": 1}",
+        "{\"Insurance\": 29, \"Travel\": 13, \"Food\": 32, \"Investments\": 18, \"Personal Care\": 1, \"Gifts/Donations\": 2, \"Education\": 1, \"Utilities\": 4}"
+      ]
+    },
+    "answer": "The spending_category column stores the categories on where the user spends their money"
+  },
+  {
+    "instruction": "Explain the function of the spending_category column in customer-related data.",
+    "input": {
+      "column_name": "spending_category",
+      "sample_values": [
+        "{\"Operations\": 59, \"Marketing\": 30, \"Payroll\": 27, \"Equipment\": 19, \"Miscellaneous\": 1}",
+        "{\"Education\": 49, \"Personal Care\": 35, \"Transportation\": 13, \"Taxes\": 1, \"Utilities\": 1, \"Shopping\": 1}",
+        "{\"Entertainment\": 43, \"Transportation\": 7, \"Gifts/Donations\": 4, \"Travel\": 32, \"Debt Repayment\": 14}",
+        "{\"Debt Repayment\": 8, \"Gifts/Donations\": 49, \"Housing\": 9, \"Miscellaneous\": 28, \"Personal Care\": 5, \"Taxes\": 1}",
+        "{\"Food\": 25, \"Healthcare\": 38, \"Investments\": 13, \"Insurance\": 13, \"Entertainment\": 3, \"Utilities\": 2, \"Travel\": 6}",
+        "{\"Gifts/Donations\": 26, \"Utilities\": 13, \"Insurance\": 25, \"Investments\": 17, \"Miscellaneous\": 15, \"Healthcare\": 4}",
+        "{\"Miscellaneous\": 8, \"Education\": 12, \"Debt Repayment\": 19, \"Transportation\": 2, \"Housing\": 31, \"Utilities\": 28}",
+        "{\"Savings\": 43, \"Personal Care\": 19, \"Food\": 5, \"Entertainment\": 12, \"Education\": 14, \"Debt Repayment\": 4, \"Housing\": 2, \"Utilities\": 1}",
+        "{\"Operations\": 43, \"Marketing\": 23, \"Payroll\": 25, \"Equipment\": 14, \"Miscellaneous\": 10}",
+        "{\"Travel\": 45, \"Gifts/Donations\": 22, \"Miscellaneous\": 26, \"Education\": 7}",
+        "{\"Travel\": 29, \"Investments\": 45, \"Gifts/Donations\": 19, \"Entertainment\": 2, \"Utilities\": 1, \"Shopping\": 1, \"Food\": 3}",
+        "{\"Operations\": 36, \"Marketing\": 17, \"Payroll\": 37, \"Equipment\": 11, \"Miscellaneous\": 2}",
+        "{\"Gifts/Donations\": 35, \"Investments\": 44, \"Taxes\": 18, \"Food\": 1, \"Personal Care\": 1, \"Debt Repayment\": 1}"
+      ]
+    },
+    "answer": "The spending_category column stores the categories on where the user spends their money"
+  },
+  {
+    "instruction": "Explain the function of the preferred_payment_method column in customer-related data.",
+    "input": {
+      "column_name": "preferred_payment_method",
+      "sample_values": [
+        "Credit Card",
+        "Credit Card",
+        "Credit Card",
+        "Credit Card",
+        "UPI",
+        "Crypto",
+        "Debit Card",
+        "Crypto",
+        "UPI",
+        "Debit Card",
+        "Credit Card",
+        "Debit Card",
+        "UPI"
+      ]
+    },
+    "answer": "The preferred_payment_method column stores the preffered payment methods of the user to pay their bills"
+  },
+  {
+    "instruction": "Explain the function of the preferred_payment_method column in customer-related data.",
+    "input": {
+      "column_name": "preferred_payment_method",
+      "sample_values": [
+        "Credit Card",
+        "Credit Card",
+        "Crypto",
+        "Crypto",
+        "Credit Card",
+        "Cash",
+        "Crypto",
+        "Credit Card",
+        "Crypto",
+        "Crypto",
+        "Crypto",
+        "Debit Card",
+        "Crypto"
+      ]
+    },
+    "answer": "The preferred_payment_method column stores the preffered payment methods of the user to pay their bills"
+  },
+  {
+    "instruction": "Explain the function of the preferred_payment_method column in customer-related data.",
+    "input": {
+      "column_name": "preferred_payment_method",
+      "sample_values": [
+        "Credit Card",
+        "Crypto",
+        "Debit Card",
+        "Crypto",
+        "UPI",
+        "UPI",
+        "Cash",
+        "Debit Card",
+        "Debit Card",
+        "Debit Card",
+        "UPI",
+        "Cash",
+        "Cash"
+      ]
+    },
+    "answer": "The preferred_payment_method column stores the preffered payment methods of the user to pay their bills"
+  },
+  {
+    "instruction": "Explain the function of the financial_goal column in customer-related data.",
+    "input": {
+      "column_name": "financial_goal",
+      "sample_values": [
+        "Emergency Fund",
+        "Emergency Fund",
+        "Investment",
+        "Emergency Fund",
+        "Travel",
+        "Home Purchase",
+        "Starting Business",
+        "Retirement",
+        "Emergency Fund",
+        "Starting Business",
+        "Retirement",
+        "Starting Business",
+        "Retirement"
+      ]
+    },
+    "answer": "The financial_goal column stores the goals of the user with which we can understand their financial goals"
+  },
+  {
+    "instruction": "Explain the function of the financial_goal column in customer-related data.",
+    "input": {
+      "column_name": "financial_goal",
+      "sample_values": [
+        "Home Purchase",
+        "Emergency Fund",
+        "Education",
+        "Starting Business",
+        "Emergency Fund",
+        "Starting Business",
+        "Starting Business",
+        "Home Purchase",
+        "Travel",
+        "Vehicle Purchase",
+        "Education",
+        "Home Purchase",
+        "Starting Business"
+      ]
+    },
+    "answer": "The financial_goal column stores the goals of the user with which we can understand their financial goals"
+  },
+  {
+    "instruction": "Explain the function of the financial_goal column in customer-related data.",
+    "input": {
+      "column_name": "financial_goal",
+      "sample_values": [
+        "Starting Business",
+        "Retirement",
+        "Home Purchase",
+        "Retirement",
+        "Vehicle Purchase",
+        "Education",
+        "Retirement",
+        "Retirement",
+        "Retirement",
+        "Starting Business",
+        "Travel",
+        "Starting Business",
+        "Starting Business"
+      ]
+    },
+    "answer": "The financial_goal column stores the goals of the user with which we can understand their financial goals"
+  },
+  {
+    "instruction": "Explain the function of the digital_id column in customer-related data.",
+    "input": {
+      "column_name": "digital_id",
+      "sample_values": [
+        "DIG-7025bb176e004b35",
+        "DIG-b9141ecc5afa405e",
+        "DIG-e0849cc06f5e4a76",
+        "DIG-17880b68fe624f63",
+        "DIG-977143066f144488",
+        "DIG-e3d962b7fb724c84",
+        "DIG-cd2a66027c18409c",
+        "DIG-c8fdaab016d04e56",
+        "DIG-9c965643ac8a4d2b",
+        "DIG-c0c4b0bccdec4b91",
+        "DIG-90988a6b97a64a7d",
+        "DIG-8a848b1f9f7249ba",
+        "DIG-1a70e678074f4693"
+      ]
+    },
+    "answer": "The digital_id column stores the unique identifier of the user digital usage of applications"
+  },
+  {
+    "instruction": "Explain the function of the digital_id column in customer-related data.",
+    "input": {
+      "column_name": "digital_id",
+      "sample_values": [
+        "DIG-49c403f49bda420a",
+        "DIG-8fe31926d9a74e15",
+        "DIG-d769d548fe1c49e1",
+        "DIG-7fa6ac3fe7d14e17",
+        "DIG-d47f0f1dc53d4426",
+        "DIG-77e469c7724d43ce",
+        "DIG-659c6baeb36045bb",
+        "DIG-d79975fdf3724a94",
+        "DIG-68681befd0924b57",
+        "DIG-f9294b9a71a34890",
+        "DIG-7a54c775b9df4847",
+        "DIG-d68adada180a4950",
+        "DIG-c3e98673f7bb4eeb"
+      ]
+    },
+    "answer": "The digital_id column stores the unique identifier of the user digital usage of applications"
+  },
+  {
+    "instruction": "Explain the function of the digital_id column in customer-related data.",
+    "input": {
+      "column_name": "digital_id",
+      "sample_values": [
+        "DIG-2f77ea8466884852",
+        "DIG-76af0e6ce61e40c9",
+        "DIG-7a947a8dae7b40c9",
+        "DIG-7155d17a841c4f7a",
+        "DIG-79bbc03f57114643",
+        "DIG-cb4f8a391ad340cd",
+        "DIG-6b346f6cb00c433c",
+        "DIG-fbf94356f5cc42ff",
+        "DIG-8f198d3080424f37",
+        "DIG-d6923318456840b8",
+        "DIG-d77804b1c6ef408c",
+        "DIG-441689d83fc24f50",
+        "DIG-45a415e1099f40a5"
+      ]
+    },
+    "answer": "The digital_id column stores the unique identifier of the user digital usage of applications"
+  },
+  {
+    "instruction": "Explain the function of the mobile_banking_usage column in customer-related data.",
+    "input": {
+      "column_name": "mobile_banking_usage",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE"
+      ]
+    },
+    "answer": "The mobile_banking_usage column tells us wheather the user is using mobile banking or not"
+  },
+  {
+    "instruction": "Explain the function of the mobile_banking_usage column in customer-related data.",
+    "input": {
+      "column_name": "mobile_banking_usage",
+      "sample_values": [
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE"
+      ]
+    },
+    "answer": "The mobile_banking_usage column tells us wheather the user is using mobile banking or not"
+  },
+  {
+    "instruction": "Explain the function of the mobile_banking_usage column in customer-related data.",
+    "input": {
+      "column_name": "mobile_banking_usage",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE"
+      ]
+    },
+    "answer": "The mobile_banking_usage column tells us wheather the user is using mobile banking or not"
+  },
+  {
+    "instruction": "Explain the function of the internet_banking_usage column in customer-related data.",
+    "input": {
+      "column_name": "internet_banking_usage",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE"
+      ]
+    },
+    "answer": "The internet_banking_usage column tells us wheather the user is using internet banking or not"
+  },
+  {
+    "instruction": "Explain the function of the internet_banking_usage column in customer-related data.",
+    "input": {
+      "column_name": "internet_banking_usage",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "TRUE"
+      ]
+    },
+    "answer": "The internet_banking_usage column tells us wheather the user is using internet banking or not"
+  },
+  {
+    "instruction": "Explain the function of the internet_banking_usage column in customer-related data.",
+    "input": {
+      "column_name": "internet_banking_usage",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE"
+      ]
+    },
+    "answer": "The internet_banking_usage column tells us wheather the user is using internet banking or not"
+  },
+  {
+    "instruction": "Explain the function of the preferred_digital_channel column in customer-related data.",
+    "input": {
+      "column_name": "preferred_digital_channel",
+      "sample_values": [
+        "Mobile App",
+        "Mobile App",
+        "Branch",
+        "Mobile App",
+        "Mobile App",
+        "Web Portal",
+        "Mobile App",
+        "ATM",
+        "Mobile App",
+        "Branch",
+        "Web Portal",
+        "Mobile App",
+        "Mobile App"
+      ]
+    },
+    "answer": "The preferred_digital_channel column stores"
+  },
+  {
+    "instruction": "Explain the function of the preferred_digital_channel column in customer-related data.",
+    "input": {
+      "column_name": "preferred_digital_channel",
+      "sample_values": [
+        "Web Portal",
+        "ATM",
+        "Web Portal",
+        "Mobile App",
+        "Web Portal",
+        "ATM",
+        "Web Portal",
+        "Web Portal",
+        "Web Portal",
+        "Web Portal",
+        "Web Portal",
+        "Mobile App",
+        "ATM"
+      ]
+    },
+    "answer": "The preferred_digital_channel column stores"
+  },
+  {
+    "instruction": "Explain the function of the preferred_digital_channel column in customer-related data.",
+    "input": {
+      "column_name": "preferred_digital_channel",
+      "sample_values": [
+        "Mobile App",
+        "Mobile App",
+        "Web Portal",
+        "Mobile App",
+        "Web Portal",
+        "Web Portal",
+        "Mobile App",
+        "Mobile App",
+        "Mobile App",
+        "Web Portal",
+        "ATM",
+        "Mobile App",
+        "Mobile App"
+      ]
+    },
+    "answer": "The preferred_digital_channel column stores"
+  },
+  {
+    "instruction": "Explain the function of the fraud_detection_enabled column in customer-related data.",
+    "input": {
+      "column_name": "fraud_detection_enabled",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE"
+      ]
+    },
+    "answer": "The fraud_detection_enabled column stores wheather the user has enabled fraud detection or not"
+  },
+  {
+    "instruction": "Explain the function of the fraud_detection_enabled column in customer-related data.",
+    "input": {
+      "column_name": "fraud_detection_enabled",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE"
+      ]
+    },
+    "answer": "The fraud_detection_enabled column stores wheather the user has enabled fraud detection or not"
+  },
+  {
+    "instruction": "Explain the function of the fraud_detection_enabled column in customer-related data.",
+    "input": {
+      "column_name": "fraud_detection_enabled",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE"
+      ]
+    },
+    "answer": "The fraud_detection_enabled column stores wheather the user has enabled fraud detection or not"
+  },
+  {
+    "instruction": "Explain the function of the biometric_authentication column in customer-related data.",
+    "input": {
+      "column_name": "biometric_authentication",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE"
+      ]
+    },
+    "answer": "The biometric_authentication column tells us the user enabled the biometric authentication or not"
+  },
+  {
+    "instruction": "Explain the function of the biometric_authentication column in customer-related data.",
+    "input": {
+      "column_name": "biometric_authentication",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE"
+      ]
+    },
+    "answer": "The biometric_authentication column tells us the user enabled the biometric authentication or not"
+  },
+  {
+    "instruction": "Explain the function of the biometric_authentication column in customer-related data.",
+    "input": {
+      "column_name": "biometric_authentication",
+      "sample_values": [
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "FALSE",
+        "TRUE"
+      ]
+    },
+    "answer": "The biometric_authentication column tells us the user enabled the biometric authentication or not"
+  },
+  {
+    "instruction": "Explain the function of the recent_login column in customer-related data.",
+    "input": {
+      "column_name": "recent_login",
+      "sample_values": [
+        "2025-10-03 19:58:00",
+        "2025-08-03 05:47:00",
+        "19-02-2025 07:24",
+        "2025-10-03 22:52:00",
+        "2025-05-03 22:14:00",
+        "2025-10-03 05:11:00",
+        "21-02-2025 04:45",
+        "2025-05-03 06:43:00",
+        "2025-07-03 18:37:00",
+        "2025-11-03 08:22:00",
+        "2025-05-03 10:54:00",
+        "2025-08-03 05:58:00",
+        "2025-12-02 15:40:00"
+      ]
+    },
+    "answer": "The recent_login column stores the recent login information of the user"
+  },
+  {
+    "instruction": "Explain the function of the recent_login column in customer-related data.",
+    "input": {
+      "column_name": "recent_login",
+      "sample_values": [
+        "2025-08-03 21:32:00",
+        "2025-08-03 04:18:00",
+        "2025-07-03 23:42:00",
+        "14-02-2025 00:18",
+        "2025-04-03 20:40:00",
+        "2025-11-03 10:07:00",
+        "2025-12-03 04:01:00",
+        "2025-07-03 10:22:00",
+        "2025-05-03 10:44:00",
+        "2025-05-03 12:31:00",
+        "2025-07-03 07:35:00",
+        "2025-07-03 16:15:00",
+        "2025-07-03 10:34:00"
+      ]
+    },
+    "answer": "The recent_login column stores the recent login information of the user"
+  },
+  {
+    "instruction": "Explain the function of the recent_login column in customer-related data.",
+    "input": {
+      "column_name": "recent_login",
+      "sample_values": [
+        "2025-08-03 19:05:00",
+        "16-02-2025 00:11",
+        "2025-10-02 02:59:00",
+        "2025-10-03 21:23:00",
+        "2025-08-03 07:54:00",
+        "20-02-2025 10:30",
+        "2025-02-03 14:34:00",
+        "2025-07-03 11:16:00",
+        "2025-09-03 20:26:00",
+        "2025-10-03 22:26:00",
+        "19-02-2025 12:15",
+        "2025-11-03 00:55:00",
+        "2025-09-03 13:37:00"
+      ]
+    },
+    "answer": "The recent_login column stores the recent login information of the user"
+  },
+  {
+    "instruction": "Explain the function of the contact_id column in customer-related data.",
+    "input": {
+      "column_name": "contact_id",
+      "sample_values": [
+        "CONT-8ef5a77fcb6b410b",
+        "CONT-8653b5906e994a11",
+        "CONT-61b5da4754644085",
+        "CONT-cb2faffb37534fd4",
+        "CONT-e71e95441f8745f7",
+        "CONT-bd62b9d32f5841c0",
+        "CONT-b1b2f18b344c4bff",
+        "CONT-c5be3be514da40a7",
+        "CONT-35a435d01a1344bd",
+        "CONT-6031134992f4452c",
+        "CONT-6a93086087204736",
+        "CONT-224298863fe3461a",
+        "CONT-6a9361f173494820"
+      ]
+    },
+    "answer": "The contact_id column stores the unique identifier for the customer contact information"
+  },
+  {
+    "instruction": "Explain the function of the contact_id column in customer-related data.",
+    "input": {
+      "column_name": "contact_id",
+      "sample_values": [
+        "CONT-3c4e23b372a943b7",
+        "CONT-415b1187ba9f45d3",
+        "CONT-61467eb043a84666",
+        "CONT-de31290a12ef4d1c",
+        "CONT-e1b24b3b35474386",
+        "CONT-401cdf829bf44f99",
+        "CONT-3ae6b360a0ec4396",
+        "CONT-804b43657a7b4900",
+        "CONT-195fc137ed33414a",
+        "CONT-de397385dc2e4d2b",
+        "CONT-25bcab1d67bd47ff",
+        "CONT-5892e43f1e414802",
+        "CONT-a2c65c62cae14807"
+      ]
+    },
+    "answer": "The contact_id column stores the unique identifier for the customer contact information"
+  },
+  {
+    "instruction": "Explain the function of the contact_id column in customer-related data.",
+    "input": {
+      "column_name": "contact_id",
+      "sample_values": [
+        "CONT-04fe3bff1f314ba9",
+        "CONT-904a49015faa4cfa",
+        "CONT-26d7b6a1ad534baf",
+        "CONT-df0159d02c054e64",
+        "CONT-a7670f86d8544ec1",
+        "CONT-df706e56edc641f6",
+        "CONT-747443e3254a4f2f",
+        "CONT-21d7d0e682da4278",
+        "CONT-0a56491dca4e40ad",
+        "CONT-bb889507f1644312",
+        "CONT-1f98bc16a4a04a7b",
+        "CONT-ef72828252b64695",
+        "CONT-912086e9a93d434e"
+      ]
+    },
+    "answer": "The contact_id column stores the unique identifier for the customer contact information"
+  },
+  {
+    "instruction": "Explain the function of the contact_type column in customer-related data.",
+    "input": {
+      "column_name": "contact_type",
+      "sample_values": [
+        "Mobile",
+        "Mobile",
+        "Mobile",
+        "Home Phone",
+        "Mobile",
+        "Home Phone",
+        "Email",
+        "Home Phone",
+        "Email",
+        "Mobile",
+        "Email",
+        "Work Phone",
+        "Email"
+      ]
+    },
+    "answer": "The contact_type column stores the contact type of the user like Home phone, Work phone or email"
+  },
+  {
+    "instruction": "Explain the function of the contact_type column in customer-related data.",
+    "input": {
+      "column_name": "contact_type",
+      "sample_values": [
+        "Mobile",
+        "Mobile",
+        "Mobile",
+        "Work Phone",
+        "Home Phone",
+        "Mobile",
+        "Email",
+        "Email",
+        "Email",
+        "Mobile",
+        "Email",
+        "Home Phone",
+        "Home Phone"
+      ]
+    },
+    "answer": "The contact_type column stores the contact type of the user like Home phone, Work phone or email"
+  },
+  {
+    "instruction": "Explain the function of the contact_type column in customer-related data.",
+    "input": {
+      "column_name": "contact_type",
+      "sample_values": [
+        "Email",
+        "Home Phone",
+        "Home Phone",
+        "Email",
+        "Work Phone",
+        "Work Phone",
+        "Mobile",
+        "Mobile",
+        "Mobile",
+        "Email",
+        "Mobile",
+        "Mobile",
+        "Work Phone"
+      ]
+    },
+    "answer": "The contact_type column stores the contact type of the user like Home phone, Work phone or email"
+  },
+  {
+    "instruction": "Explain the function of the contact_value column in customer-related data.",
+    "input": {
+      "column_name": "contact_value",
+      "sample_values": [
+        "sandranunez@verizon.net",
+        "+1 113-304-8501",
+        "+1 935-225-7491",
+        "+1 089-154-4457",
+        "ambersmith@att.net",
+        "+1 561-531-0833",
+        "brianna.johnson@bell.ca",
+        "+91 99-54051965-2",
+        "+1 964-842-3081",
+        "erich@outlook.com",
+        "jamiegomez186@verizon.net",
+        "+1 749-442-5119",
+        "+44 7692 944671"
+      ]
+    },
+    "answer": "The contact_value column stores the contact details of the user like phone number or email"
+  },
+  {
+    "instruction": "Explain the function of the contact_value column in customer-related data.",
+    "input": {
+      "column_name": "contact_value",
+      "sample_values": [
+        "info@arnoldwilliams.com",
+        "info@harrisberry.com",
+        "+1 725-013-4234",
+        "+61 60 6177 1303",
+        "+1 776-324-2067",
+        "+61 68 8123 0416",
+        "+61 4042 734 005",
+        "+1 282-612-4062",
+        "info@myersnelson.com",
+        "+44 07 5196 4945",
+        "+44 7171 229376",
+        "+1 989-601-5549",
+        "alexhughes817@yahoo.com"
+      ]
+    },
+    "answer": "The contact_value column stores the contact details of the user like phone number or email"
+  },
+  {
+    "instruction": "Explain the function of the contact_value column in customer-related data.",
+    "input": {
+      "column_name": "contact_value",
+      "sample_values": [
+        "+1 208-906-7305",
+        "+1 909-639-0736",
+        "+1 694-319-4342",
+        "+44 762 7779762",
+        "+1 209-265-4570",
+        "+1 192-578-4296",
+        "+1 548-508-1885",
+        "+1 963-420-2611",
+        "kevinjones7@cox.net",
+        "info@salazarnewton.com",
+        "+91 89788-64038",
+        "+61 4588 571 834",
+        "matthewfinley@yahoo.com"
+      ]
+    },
+    "answer": "The contact_value column stores the contact details of the user like phone number or email"
+  },
+  {
+    "instruction": "Explain the function of the is_primary column in customer-related data.",
+    "input": {
+      "column_name": "is_primary",
+      "sample_values": [
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE"
+      ]
+    },
+    "answer": "The is_primary column which tells us about wheather it is a primary details or not"
+  },
+  {
+    "instruction": "Explain the function of the is_primary column in customer-related data.",
+    "input": {
+      "column_name": "is_primary",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE"
+      ]
+    },
+    "answer": "The is_primary column which tells us about wheather it is a primary details or not"
+  },
+  {
+    "instruction": "Explain the function of the is_primary column in customer-related data.",
+    "input": {
+      "column_name": "is_primary",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE"
+      ]
+    },
+    "answer": "The is_primary column which tells us about wheather it is a primary details or not"
+  },
+  {
+    "instruction": "Explain the function of the address_id column in customer-related data.",
+    "input": {
+      "column_name": "address_id",
+      "sample_values": [
+        "ADDR-d2525b64a19d495f",
+        "ADDR-c0cd7a7352eb4803",
+        "ADDR-b7f0def7915643f5",
+        "ADDR-1246ddca0b734d63",
+        "ADDR-e00a069ac1a14357",
+        "ADDR-383dc8a07e584bf8",
+        "ADDR-3913e9447477497a",
+        "ADDR-01191dd43d5b4827",
+        "ADDR-391e8aec5be44381",
+        "ADDR-521d60e8c2c94093",
+        "ADDR-3613895552cf4561",
+        "ADDR-cd379914d862488c",
+        "ADDR-86096341c85340b4"
+      ]
+    },
+    "answer": "The address_id column stores the unique identifier for the customer_address table"
+  },
+  {
+    "instruction": "Explain the function of the address_id column in customer-related data.",
+    "input": {
+      "column_name": "address_id",
+      "sample_values": [
+        "ADDR-6dd53d10140f4784",
+        "ADDR-fc222c4bd76e43ae",
+        "ADDR-ebf8d37c45504391",
+        "ADDR-4da279e5bdcf4787",
+        "ADDR-0ff2e367eb404eb6",
+        "ADDR-b39bb19a01f845af",
+        "ADDR-3ffa538fef6e45cf",
+        "ADDR-9019ea35af73445d",
+        "ADDR-7b6c0ac14dee4528",
+        "ADDR-f05f711833784646",
+        "ADDR-edb33708d36c4145",
+        "ADDR-6c9df0c4af8f49f6",
+        "ADDR-43a88a2246fc4000"
+      ]
+    },
+    "answer": "The address_id column stores the unique identifier for the customer_address table"
+  },
+  {
+    "instruction": "Explain the function of the address_id column in customer-related data.",
+    "input": {
+      "column_name": "address_id",
+      "sample_values": [
+        "ADDR-1339c6cc07b34ae4",
+        "ADDR-0bb2a0921c414118",
+        "ADDR-06800724d04d46f1",
+        "ADDR-95dd83b71882416c",
+        "ADDR-18ce94bbed97407c",
+        "ADDR-97638b479f0f402b",
+        "ADDR-3220c80f8a4642dc",
+        "ADDR-99a623ed627e44a8",
+        "ADDR-8dfc4289ff1f4592",
+        "ADDR-99fa3abaf0b6477e",
+        "ADDR-87aa79008e4649a1",
+        "ADDR-0c22df8f35b64607",
+        "ADDR-560d10bc59cd47ff"
+      ]
+    },
+    "answer": "The address_id column stores the unique identifier for the customer_address table"
+  },
+  {
+    "instruction": "Explain the function of the address_type column in customer-related data.",
+    "input": {
+      "column_name": "address_type",
+      "sample_values": [
+        "Home",
+        "Work",
+        "Mailing",
+        "Mailing",
+        "Home",
+        "Mailing",
+        "Home",
+        "Work",
+        "Billing",
+        "Home",
+        "Home",
+        "Billing",
+        "Home"
+      ]
+    },
+    "answer": "The address_type column gives us the information about what of address it is like HOME,WORK"
+  },
+  {
+    "instruction": "Explain the function of the address_type column in customer-related data.",
+    "input": {
+      "column_name": "address_type",
+      "sample_values": [
+        "Work",
+        "Home",
+        "Home",
+        "Work",
+        "Billing",
+        "Work",
+        "Home",
+        "Home",
+        "Home",
+        "Home",
+        "Billing",
+        "Home",
+        "Mailing"
+      ]
+    },
+    "answer": "The address_type column gives us the information about what of address it is like HOME,WORK"
+  },
+  {
+    "instruction": "Explain the function of the address_type column in customer-related data.",
+    "input": {
+      "column_name": "address_type",
+      "sample_values": [
+        "Home",
+        "Home",
+        "Home",
+        "Work",
+        "Work",
+        "Home",
+        "Home",
+        "Home",
+        "Home",
+        "Mailing",
+        "Work",
+        "Home",
+        "Home"
+      ]
+    },
+    "answer": "The address_type column gives us the information about what of address it is like HOME,WORK"
+  },
+  {
+    "instruction": "Explain the function of the street column in customer-related data.",
+    "input": {
+      "column_name": "street",
+      "sample_values": [
+        "4512 Improve Pl, Unit 7",
+        "9439 Budget Pl, Apt 384",
+        "3717 Consider Rd",
+        "8858 Suffer Ct",
+        "2818 Enough Blvd",
+        "167 Serious Ct",
+        "7984 Help St",
+        "9685 Strategy Dr",
+        "6455 Number Rd",
+        "6874 Local St",
+        "9 Choice Way",
+        "2993 Production St",
+        "4356 Central Blvd"
+      ]
+    },
+    "answer": "The street column tells from which street the person is"
+  },
+  {
+    "instruction": "Explain the function of the street column in customer-related data.",
+    "input": {
+      "column_name": "street",
+      "sample_values": [
+        "8093 Upon Ave",
+        "2982 Art Rd",
+        "2874 Agency Dr",
+        "1174 Owner Ln",
+        "7569 Fill Dr",
+        "7679 Society Rd, Unit 151",
+        "8943 Week St, # 212",
+        "6158 Already St, Apt 386",
+        "2456 Wrong Dr, Unit 483",
+        "365 Recognize Ct, Apt 132",
+        "1292 From Ct",
+        "5044 Old Ln, Apt 100",
+        "4821 Rather St, Suite 143"
+      ]
+    },
+    "answer": "The street column tells from which street the person is"
+  },
+  {
+    "instruction": "Explain the function of the street column in customer-related data.",
+    "input": {
+      "column_name": "street",
+      "sample_values": [
+        "4578 Story Blvd",
+        "7897 Attention Way",
+        "9527 Position Dr, Apt 435",
+        "9891 Hear Ave",
+        "565 Executive Ave, # 107",
+        "125 Tree Rd",
+        "4156 Adult Dr",
+        "9391 Usually Dr",
+        "4773 Argue Dr",
+        "7307 Range Ln",
+        "2092 South Dr",
+        "799 Unit Way, Suite 418",
+        "9571 Mouth Dr, Suite 431"
+      ]
+    },
+    "answer": "The street column tells from which street the person is"
+  },
+  {
+    "instruction": "Explain the function of the city column in customer-related data.",
+    "input": {
+      "column_name": "city",
+      "sample_values": [
+        "London",
+        "Delhi",
+        "Washington D.C.",
+        "Seattle",
+        "San Antonio",
+        "Houston",
+        "Seattle",
+        "Indianapolis",
+        "San Francisco",
+        "London",
+        "Seattle",
+        "Manchester",
+        "Melbourne"
+      ]
+    },
+    "answer": "The city column tells from which city the person is"
+  },
+  {
+    "instruction": "Explain the function of the city column in customer-related data.",
+    "input": {
+      "column_name": "city",
+      "sample_values": [
+        "Chicago",
+        "Oshawa",
+        "Victoria",
+        "San Francisco",
+        "Ahmedabad",
+        "Birmingham",
+        "Oshawa",
+        "Melbourne",
+        "Austin",
+        "Ahmedabad",
+        "Manchester",
+        "Los Angeles",
+        "Dallas"
+      ]
+    },
+    "answer": "The city column tells from which city the person is"
+  },
+  {
+    "instruction": "Explain the function of the city column in customer-related data.",
+    "input": {
+      "column_name": "city",
+      "sample_values": [
+        "Kanpur",
+        "San Francisco",
+        "London",
+        "Newcastle",
+        "Cairns",
+        "San Francisco",
+        "Edmonton",
+        "Glasgow",
+        "Lucknow",
+        "Seattle",
+        "Hamilton",
+        "Philadelphia",
+        "San Antonio"
+      ]
+    },
+    "answer": "The city column tells from which city the person is"
+  },
+  {
+    "instruction": "Explain the function of the state column in customer-related data.",
+    "input": {
+      "column_name": "state",
+      "sample_values": [
+        "Alberta",
+        "Victoria",
+        "Maryland",
+        "Montana",
+        "Australian Capital Territory",
+        "England",
+        "Oklahoma",
+        "North Dakota",
+        "Arkansas",
+        "Georgia",
+        "Andhra Pradesh",
+        "Andhra Pradesh",
+        "Tasmania"
+      ]
+    },
+    "answer": "The state column tells from which state the person is"
+  },
+  {
+    "instruction": "Explain the function of the state column in customer-related data.",
+    "input": {
+      "column_name": "state",
+      "sample_values": [
+        "Chhattisgarh",
+        "Australian Capital Territory",
+        "England",
+        "West Virginia",
+        "Washington",
+        "Wisconsin",
+        "Wales",
+        "Quebec",
+        "Manipur",
+        "Arizona",
+        "Illinois",
+        "Newfoundland and Labrador",
+        "Indiana"
+      ]
+    },
+    "answer": "The state column tells from which state the person is"
+  },
+  {
+    "instruction": "Explain the function of the state column in customer-related data.",
+    "input": {
+      "column_name": "state",
+      "sample_values": [
+        "Scotland",
+        "Tennessee",
+        "Massachusetts",
+        "Bihar",
+        "Northern Ireland",
+        "Georgia",
+        "Idaho",
+        "Mississippi",
+        "New Mexico",
+        "Arizona",
+        "New Hampshire",
+        "Nevada",
+        "Nunavut"
+      ]
+    },
+    "answer": "The state column tells from which state the person is"
+  },
+  {
+    "instruction": "Explain the function of the postal_code column in customer-related data.",
+    "input": {
+      "column_name": "postal_code",
+      "sample_values": [
+        "13595",
+        "73704",
+        "P1S 4C8",
+        "829121",
+        "663196",
+        "7933",
+        "IG58 8CQ",
+        "SO2 5GC",
+        "50133",
+        "4930",
+        "7346",
+        "WR86 9HM",
+        "9893"
+      ]
+    },
+    "answer": "The postal_code is the postal code of the person"
+  },
+  {
+    "instruction": "Explain the function of the postal_code column in customer-related data.",
+    "input": {
+      "column_name": "postal_code",
+      "sample_values": [
+        "90832",
+        "V6C 4T3",
+        "7377",
+        "267980",
+        "NG62 2DN",
+        "6497",
+        "37019",
+        "29798",
+        "50423",
+        "77666",
+        "82623",
+        "44655",
+        "29567"
+      ]
+    },
+    "answer": "The postal_code is the postal code of the person"
+  },
+  {
+    "instruction": "Explain the function of the postal_code column in customer-related data.",
+    "input": {
+      "column_name": "postal_code",
+      "sample_values": [
+        "88857",
+        "403804",
+        "95106",
+        "KW85 4ZC",
+        "286041",
+        "P8N 3C7",
+        "B2Y 9C7",
+        "458431",
+        "E32 6RU",
+        "29401",
+        "621085",
+        "17364",
+        "4256"
+      ]
+    },
+    "answer": "The postal_code is the postal code of the person"
+  },
+  {
+    "instruction": "Explain the function of the country column in customer-related data.",
+    "input": {
+      "column_name": "country",
+      "sample_values": [
+        "India",
+        "India",
+        "Australia",
+        "United States",
+        "Canada",
+        "India",
+        "United States",
+        "Canada",
+        "Canada",
+        "United Kingdom",
+        "United States",
+        "Canada",
+        "United Kingdom"
+      ]
+    },
+    "answer": "The country column tells from which country the person is"
+  },
+  {
+    "instruction": "Explain the function of the country column in customer-related data.",
+    "input": {
+      "column_name": "country",
+      "sample_values": [
+        "Australia",
+        "Australia",
+        "United States",
+        "United States",
+        "United States",
+        "United Kingdom",
+        "United States",
+        "Canada",
+        "United States",
+        "United Kingdom",
+        "United States",
+        "United States",
+        "Australia"
+      ]
+    },
+    "answer": "The country column tells from which country the person is"
+  },
+  {
+    "instruction": "Explain the function of the country column in customer-related data.",
+    "input": {
+      "column_name": "country",
+      "sample_values": [
+        "India",
+        "United Kingdom",
+        "United Kingdom",
+        "Australia",
+        "Canada",
+        "Canada",
+        "Canada",
+        "United States",
+        "India",
+        "United States",
+        "United States",
+        "Canada",
+        "United States"
+      ]
+    },
+    "answer": "The country column tells from which country the person is"
+  },
+  {
+    "instruction": "Explain the function of the is_primary column in customer-related data.",
+    "input": {
+      "column_name": "is_primary",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE"
+      ]
+    },
+    "answer": "The is_primary column which tells us about wheather it is a primary details or not"
+  },
+  {
+    "instruction": "Explain the function of the is_primary column in customer-related data.",
+    "input": {
+      "column_name": "is_primary",
+      "sample_values": [
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE"
+      ]
+    },
+    "answer": "The is_primary column which tells us about wheather it is a primary details or not"
+  },
+  {
+    "instruction": "Explain the function of the is_primary.1 column in customer-related data.",
+    "input": {
+      "column_name": "is_primary",
+      "sample_values": [
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE",
+        "TRUE"
+      ]
+    },
+    "answer": "The is_primary column which tells us about wheather it is a primary details or not"
+  }
+]
